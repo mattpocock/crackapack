@@ -1,0 +1,132 @@
+h1, h2, h3, h4, h5, h6, p {
+    color: white;
+  }
+  
+  .background {
+    height: 100vh;
+    
+  }
+  
+  .align-center {
+    text-align: center;
+  }
+  
+  .dark {
+    background-color: #222;
+  }
+  
+  .darkish {
+    background-color: #333;
+  }
+  
+  .light {
+    background-color: #444;
+  }
+
+  .card {
+    width: 100%;
+    border-radius: 9px;
+    z-index: 301;
+    margin: auto;
+    opacity: 1;
+    transition: transform 0.5s;
+  }
+
+  .card:hover {
+      transform: translateX(6%);
+  }
+
+  .card__under {
+    background-position: top center;
+    border-radius: 9px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  /* Boosters */
+
+  .booster {
+      width: 100%;
+  }
+
+  /* Pile Stuff */
+  
+  .pileColumn {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .pile {
+    width: 85%;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0;
+    border-radius: 8px 8px 0px 0px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    background-color: black;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  
+  
+  @keyframes enterbounce {
+    from {
+      transform: scale(1.1, 1.1);
+    } to {
+      transform: scale(1,1);
+    }
+  }
+  
+  .pile__topbar {
+    height: 35px;
+    width: 100%;
+    border-radius: 8px 8px 0px 0px;
+    background-color: #222;
+    color: white;
+    text-align: right;
+  }
+  
+  .pile__topbar button {
+    margin: 0;
+    line-height: 35px;
+    background-color: transparent;
+    border: 0;
+    padding: 0px 10px 0px 10px;
+    transition: color 0.2s;
+  }
+  
+  .pile__topbar button:focus {
+    outline: 0;
+  }
+  
+  .pile__topbar button:hover {
+    color: red;
+  }
+  
+  .pile__card {
+    animation-name: enterbounce;
+    animation-duration: 0.5s;
+    width: 100%;
+    height: 35px;
+    border-radius: 8px 8px 0px 0px;
+    background: cover;
+    background-position: top;
+    background-size: cover;
+  }
+  
+  @keyframes fadeInLeft {
+    from {
+      transform: translateX(-200px);
+      opacity: 0;
+    } to {
+      transform: translateX(0px);
+      opacity: 1;
+    }
+  }
+  
+  .fadeInLeft {
+    animation-name: fadeInLeft;
+    animation-duration: 0.5s;
+  }
