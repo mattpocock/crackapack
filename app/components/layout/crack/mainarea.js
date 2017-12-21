@@ -11,13 +11,13 @@ class MainArea extends React.Component {
       this.handleBadClick = this.handleBadClick.bind(this);
     }
     
-    handleGoodClick(e) {
-      this.props.good();
+    handleBadClick() {
+      this.props.badClickHandler(this.props.card);
       this.props.next();
     }
-    
-    handleBadClick(e) {
-      this.props.bad();
+
+    handleGoodClick() {
+      this.props.goodClickHandler(this.props.card);
       this.props.next();
     }
     
@@ -25,16 +25,16 @@ class MainArea extends React.Component {
       return (
         <div className="container-fluid">
           <div className="row row-eq-height">
-            <div className="col-xs-4 dark main-area__button__container">
+            <div className="col-xs-2 dark main-area__button__container">
               <button className="main-area__button" onClick={this.handleBadClick}>Shit Pile</button>
             </div>
-            <div className="col-xs-4 darkish card__container">
+            <div className="col-xs-8 darkish card__container">
             <div className="card__under" style={{backgroundImage: "url("+this.props.underCard.imageUrl+")"}}>
               <img className="card" src={this.props.card.imageUrl}/>
             </div>
               
             </div>
-        <div className="col-xs-4 dark main-area__button__container">
+        <div className="col-xs-2 dark main-area__button__container">
           <button className="main-area__button" onClick={this.handleGoodClick}>Good Pile</button>
         </div>
       </div>

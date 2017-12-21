@@ -1,3 +1,7 @@
+body {
+  background-color: #333;
+}
+
 h1, h2, h3, h4, h5, h6, p {
     color: white;
   }
@@ -12,15 +16,15 @@ h1, h2, h3, h4, h5, h6, p {
   }
   
   .dark {
-    background-color: #222;
+    background-color: rgba(0,0,0,0.9);
   }
   
   .darkish {
-    background-color: #333;
+    background-color: rgba(0,0,0,0.8);
   }
   
   .light {
-    background-color: #444;
+    background-color: rgba(0,0,0,0.6);
   }
 
   /* Main Area */
@@ -63,7 +67,9 @@ h1, h2, h3, h4, h5, h6, p {
     border-radius: 9px;
     background-size: cover;
     background-repeat: no-repeat;
-    width: 100%;
+    width: 60%;
+    margin: auto;
+    max-height: 50vh;
   }
 
   /* Boosters */
@@ -160,4 +166,26 @@ h1, h2, h3, h4, h5, h6, p {
   .fadeInLeft {
     animation-name: fadeInLeft;
     animation-duration: 0.5s;
+  }
+
+  /* Stats */
+
+  .stat-box {
+    background-color: rgba(0,0,0,0.6);
+    padding: 20px;
+  }
+
+  .stat-box p {
+    font-size: 12px;
+    margin-bottom: 0px;
+  }
+
+  /* Background */
+
+  .fixed-backdrop {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-size: cover;
   }
