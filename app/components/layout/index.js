@@ -4,7 +4,9 @@ var Crack = require('./crack');
 var ChooseBooster = require('./choosebooster');
 var Pile = require('./pile.js');
 var Background = require('./background.js');
-var Stats = require('./stats.js')
+var Stats = require('./stats.js');
+
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 class Layout extends React.Component {
   
@@ -16,7 +18,8 @@ class Layout extends React.Component {
         boostersOpened: 0,
         goodPulls: 0,
         badPulls: 0,
-        backgroundImage : "https://magic.wizards.com/sites/mtg/files/RE8hXiBUA9.jpg",
+        backgroundImage : "",
+        defaultBackground : "https://magic.wizards.com/sites/mtg/files/RE8hXiBUA9.jpg",
         goodPile: {
             cards: []
         },
@@ -97,6 +100,10 @@ class Layout extends React.Component {
             case "KTK":
             src = "https://noahbradley.com/wp-content/uploads/Noah-Bradley_mountain-khans-of-tarkir-2.jpg";
             break;
+
+            case "BFZ":
+            src ="http://media-dominaria.cursecdn.com/attachments/141/191/635722569063100993.jpg"
+            break;
         }
 
           this.setState({backgroundImage : src});
@@ -105,7 +112,21 @@ class Layout extends React.Component {
     render() {
       return (
         <div>
-        <Background src={this.state.backgroundImage}/>
+            <ReactCSSTransitionGroup
+            transitionName="backdrop"
+            transitionAppear={true}
+            transitionEnter={true}
+            transitionLeave={true}
+            transitionAppearTimeout={1000}
+            transitionLeaveTimeout={1000}
+            >
+                {this.state.backgroundImage!= ""
+                    ?
+                    <img key={this.state.setCode} className="fixed-backdrop" src={this.state.backgroundImage}></img>
+                    :
+                    <img key={this.state.setCode} className="fixed-backdrop" src={this.state.defaultBackground}></img>
+                    }
+            </ReactCSSTransitionGroup>
         <div className="container-fluid">
             <div className="row">
                 <div className="col-md-1 background hidden-sm hidden-xs"/>

@@ -1,5 +1,6 @@
 body {
   background-color: #333;
+  overflow: hidden;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -51,15 +52,16 @@ h1, h2, h3, h4, h5, h6, p {
   }
 
   .card {
-    width: 100%;
+    max-width: 100%;
     border-radius: 9px;
     z-index: 301;
+    max-height: 50vh;
     margin: auto;
-    transition: transform 0.5s;
-  }
-
-  .card:hover {
-      transform: translateX(6%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 
   .card__under {
@@ -70,6 +72,12 @@ h1, h2, h3, h4, h5, h6, p {
     width: 60%;
     margin: auto;
     max-height: 50vh;
+  }
+
+  .card__prep {
+    width: 0px;
+    height: 0px;
+    position: absolute;
   }
 
   /* Boosters */
@@ -186,6 +194,93 @@ h1, h2, h3, h4, h5, h6, p {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    z-index: -1;
+    z-index: 0;
     background-size: cover;
+  }
+
+  /* Animations */
+
+  .fade-enter {
+    opacity: 0;
+  }
+  
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 0.5s;
+  }
+  
+  .fade-leave {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .fade-leave.fade-leave-active {
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.5s ease-in;
+  }
+
+  .backdrop-appear {
+    opacity: 0;
+  }
+
+  .backdrop-appear.backdrop-appear-active {
+    opacity: 1;
+    transition: opacity 1s ease-in;
+  }
+
+  .backdrop-enter {
+    opacity: 0;
+  }
+
+  .backdrop-enter.backdrop-enter-active {
+    opacity: 1;
+    transition: opacity 1s ease-in;
+  }
+
+  .backdrop-leave {
+    opacity: 1;
+  }
+
+  .backdrop-leave.backdrop-leave-active {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+
+  /* Loader */
+
+  .loader__container {
+    height: 50%;
+    width: 50%;
+    position: relative;
+    transform: translate(50%, 50%);
+  }
+
+  .loader__mover {
+    width: 100%;
+    background-color: white;
+    overflow: hidden;
+  }
+
+  .loader__mover h1 {
+    color: black;
+    z-index: 99;
+  }
+
+  .loader__container h1 {
+    z-index: 100;
+  }
+
+  .loader__text {
+    position: absolute;
+    display: block;
+    height: 10vh;
+    line-height: 10vh;
+    width: 100%;
+    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
   }

@@ -1,10 +1,11 @@
 var React = require('react');
 
 var MainArea = require('./mainarea');
-var NextBooster = require('./nextbooster')
+var NextBooster = require('./nextbooster');
+var Loader = require('./loader.js');
 
 class Crack extends React.Component {
-  
+
     constructor(props) {
       super(props);
       this.state = {
@@ -12,6 +13,9 @@ class Crack extends React.Component {
         boosterCount: 0,
         lastCard: false,
         boostersOpened: 1,
+        imagesLoaded: 0,
+        loaded: false,
+        loadPercent : 0,
         booster: {
           cards: []
         },
@@ -23,7 +27,10 @@ class Crack extends React.Component {
       this.nextCard = this.nextCard.bind(this);
       this.generateBooster = this.generateBooster.bind(this);
       this.nextBooster = this.nextBooster.bind(this);
+      this.handleImageLoaded = this.handleImageLoaded.bind(this);
     }
+
+    
     
     nextCard() {
         var c = this.state.boosterCount - 1;
@@ -44,6 +51,28 @@ class Crack extends React.Component {
         } else if (c === -1) {
           this.setState({lastCard: true});
         }
+    }
+
+    handleImageLoaded(response) {
+      var c = this.state.imagesLoaded + 1;
+      
+      var l = this.state.booster.cards.length;
+
+      var percent = Math.ceil(( c / l ) * 100);
+
+      var loaded = false;
+      if (percent === 100) {
+        loaded = true;
+        percent = 0;
+        c = 0;
+      };
+      
+      this.setState({
+        loaded: loaded,
+        imagesLoaded: c,
+        loadPercent: percent
+      });
+
     }
 
     nextBooster() {
@@ -81,14 +110,23 @@ class Crack extends React.Component {
             <h1 className="align-center">Crack A Pack</h1>
             <h4 className="align-center">Got any more of dem packs?</h4>
           </div>
-            {!this.state.lastCard ? <MainArea card={this.state.mainCard}
+            {this.state.booster.cards.slice(0).reverse().map(function(item, i) {
+              return <img key={i} src={item.imageUrl} className="card__prep" onLoad={this.handleImageLoaded}/>;
+            }.bind(this))}
+            
+            {!this.state.loaded ? <Loader loadPercent={this.state.loadPercent}/> :
+            
+            !this.state.lastCard ? <MainArea card={this.state.mainCard}
               underCard={this.state.underCard}
               next={this.nextCard}
               goodClickHandler={this.props.goodClickHandler}
               badClickHandler={this.props.badClickHandler}
+              boosterCount={this.state.boosterCount}
               toggle={this.props.toggle}/> :
             <NextBooster same={this.nextBooster} new={this.props.toggle}/>
             }
+
+          }
           </div>
         </div>
         </div>

@@ -9,32 +9,26 @@ class BoosterSelection extends React.Component {
             sets : [
                 {
                     setCode: "IMA",
-                    backgroundUrl: "",
                     boosterUrl: "https://d1rw89lz12ur5s.cloudfront.net/photo/facetofacegames/file/1068633/large/Capture.png?1505405808"
                 },
                 {
                     setCode: "MM3",
-                    backgroundUrl: "",
                     boosterUrl: "http://i.ebayimg.com/images/i/192111412116-0-1/s-l1000.jpg"
                 },
                 {
-                    setCode: "EMA",
-                    backgroundUrl: "",
-                    boosterUrl: "https://cache.popcultcha.com.au/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/m/a/magic-gathering-eternal-masters-booster-display-box-large.1498521063.jpg"
+                    setCode: "XLN",
+                    boosterUrl: "http://media.wizards.com/2017/images/magic/xln_prd_blk/plrplr-01-XLN_Boosters_en.jpg"
                 },
                 {
                     setCode: "KTK",
-                    backgroundUrl: "",
                     boosterUrl: "https://images-na.ssl-images-amazon.com/images/I/51yhe26mMEL._SX355_.jpg"
                 },
                 {
-                    setCode: "MM3",
-                    backgroundUrl: "",
-                    boosterUrl: "http://i.ebayimg.com/images/i/192111412116-0-1/s-l1000.jpg"
+                    setCode: "BFZ",
+                    boosterUrl: "https://i.ebayimg.com/images/g/DysAAOSwT6pV6R9x/s-l300.jpg"
                 },
                 {
                     setCode: "EMA",
-                    backgroundUrl: "",
                     boosterUrl: "https://cache.popcultcha.com.au/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/m/a/magic-gathering-eternal-masters-booster-display-box-large.1498521063.jpg"
                 }
             ],

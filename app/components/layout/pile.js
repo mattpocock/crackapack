@@ -8,9 +8,9 @@ class Pile extends React.Component {
         {this.props.data.cards.map(function(item, i) {
             return <div key={i} className="pile__card" style={{backgroundImage: "url(" + item.imageUrl + ")"}}/>;
           })}
-        <div className="pile__topbar">
-        <button>Clear</button>
-        </div>
+        {this.props.data.cards.length > 0 && <div className="pile__topbar"><button>Clear</button>
+        </div>}
+        
         </div>
       )
     }

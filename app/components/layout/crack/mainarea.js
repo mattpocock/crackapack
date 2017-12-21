@@ -1,6 +1,8 @@
 var React = require('react');
 
-var NextBooster = require('./nextbooster');
+var NextBooster = require('./nextbooster.js');
+var Card = require('./card.js');
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 class MainArea extends React.Component {
 
@@ -25,26 +27,33 @@ class MainArea extends React.Component {
       return (
         <div className="container-fluid">
           <div className="row row-eq-height">
-            <div className="col-xs-2 dark main-area__button__container">
+            <div className="col-xs-2 main-area__button__container">
               <button className="main-area__button" onClick={this.handleBadClick}>Shit Pile</button>
             </div>
-            <div className="col-xs-8 darkish card__container">
-            <div className="card__under" style={{backgroundImage: "url("+this.props.underCard.imageUrl+")"}}>
-              <img className="card" src={this.props.card.imageUrl}/>
+            <div className="col-xs-8 card__container">
+              <ReactCSSTransitionGroup
+                transitionEnter={true}
+                transitionLeave={true}
+                transitionName="fade"> 
+                  <Card underCard={this.props.underCard} card={this.props.card} key={this.props.boosterCount}/>
+              </ReactCSSTransitionGroup>
             </div>
-              
-            </div>
-        <div className="col-xs-2 dark main-area__button__container">
+        <div className="col-xs-2 main-area__button__container">
           <button className="main-area__button" onClick={this.handleGoodClick}>Good Pile</button>
         </div>
       </div>
         <div className="row">
         <div className="col-xs-3 hidden-md"/>
-          <div className="col-xs-6 col-md-12 dark">
+        <ReactCSSTransitionGroup
+                transitionEnter={true}
+                transitionLeave={true}
+                transitionName="fade"> 
+          <div key={this.props.card.name} className="col-xs-6 col-md-12">
             <h3 className="fadeInLeft">{this.props.card.name} ({this.props.card.rarity})</h3>
             <h4 className="fadeInLeft">{this.props.card.type}</h4>
             <p className="fadeInLeft">{this.props.card.text}</p>
           </div>
+        </ReactCSSTransitionGroup>
         <div className="col-xs-3 hidden-md"/>
         </div>
       </div>
