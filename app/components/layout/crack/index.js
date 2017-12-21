@@ -78,6 +78,7 @@ class Crack extends React.Component {
     }
 
     nextBooster() {
+      this.setState({mainCard: {}, underCard: {}, loaded: false});
       this.generateBooster(this.props.setCode);
       this.props.updateBoosters();
     }
@@ -129,15 +130,8 @@ class Crack extends React.Component {
             <Loader key={this.state.boostersOpened} loadPercent={this.state.loadPercent}/>
             
             :
-            <ReactCSSTransitionGroup
-            transitionName="backdrop"
-            transitionAppear={true}
-            transitionEnter={true}
-            transitionLeave={true}
-            transitionAppearTimeout={1000}
-            transitionLeaveTimeout={1000}
-            >
-              {!this.state.lastCard ? <MainArea card={this.state.mainCard}
+            
+              !this.state.lastCard ? <MainArea card={this.state.mainCard}
                 underCard={this.state.underCard}
                 next={this.nextCard}
                 goodClickHandler={this.props.goodClickHandler}
@@ -145,8 +139,7 @@ class Crack extends React.Component {
                 boosterCount={this.state.boosterCount}
                 toggle={this.props.toggle}/> :
               <NextBooster same={this.nextBooster} new={this.props.toggle}/>
-              }
-            </ReactCSSTransitionGroup>
+              
             }
             </ReactCSSTransitionGroup>
 

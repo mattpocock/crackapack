@@ -264,8 +264,12 @@ h1, h2, h3, h4, h5, h6, p {
   .loader__container {
     height: 10em;
     width: 10em;
-    position: relative;
+    position: absolute;
     margin: auto auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
   }
 
   .loader__mover {
