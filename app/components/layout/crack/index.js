@@ -106,7 +106,7 @@ class Crack extends React.Component {
     
     render() {
       return (
-        <div className="container-fluid">
+        <div className="container-fluid hide-overflow">
         <div className="row">
           <div className="col-md-12 background light">
           <div className="row">
@@ -142,8 +142,6 @@ class Crack extends React.Component {
               
             }
             </ReactCSSTransitionGroup>
-
-          }
           </div>
         </div>
         </div>

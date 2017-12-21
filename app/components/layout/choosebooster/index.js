@@ -11,6 +11,8 @@ class ChooseBooster extends React.Component {
         
     }
 
+    
+
     changeBackground(url) {
         this.setState({backgroundImage: url});
     }
