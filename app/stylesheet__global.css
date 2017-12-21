@@ -23,12 +23,34 @@ h1, h2, h3, h4, h5, h6, p {
     background-color: #444;
   }
 
+  /* Main Area */
+
+  .main-area__button__container {
+    height: 50vh;
+    position: relative;
+  }
+
+  .main-area__button {
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    border: 0;
+  }
+
+  .main-area__button:focus {
+    outline: 0;
+  }
+
+  .card__container {
+    height: 50vh;
+  }
+
   .card {
     width: 100%;
     border-radius: 9px;
     z-index: 301;
     margin: auto;
-    opacity: 1;
     transition: transform 0.5s;
   }
 
@@ -41,6 +63,7 @@ h1, h2, h3, h4, h5, h6, p {
     border-radius: 9px;
     background-size: cover;
     background-repeat: no-repeat;
+    width: 100%;
   }
 
   /* Boosters */
@@ -95,6 +118,14 @@ h1, h2, h3, h4, h5, h6, p {
     border: 0;
     padding: 0px 10px 0px 10px;
     transition: color 0.2s;
+  }
+
+  .pile__topbar__stats {
+    margin: 0;
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    line-height: 35px;
   }
   
   .pile__topbar button:focus {

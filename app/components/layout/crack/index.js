@@ -99,7 +99,13 @@ class Crack extends React.Component {
     }
 
     preparePiles() {
-      this.setState({goodPile: this.props.goodPile, badPile: this.props.badPile});
+      var goodPile = this.props.goodPile || {};
+      if (goodPile === undefined) {goodPile = {cards: []}};
+      var badPile = this.props.badPile || {};
+      if (badPile === undefined) {badPile = {cards: []}};
+      this.setState({goodPile: goodPile, badPile: badPile});
+      console.log(goodPile);
+      console.log(badPile);
     }
     
     componentWillMount() {
@@ -124,7 +130,8 @@ class Crack extends React.Component {
               underCard={this.state.underCard}
               next={this.nextCard}
               good={this.handleGoodClick}
-              bad={this.handleBadClick}/> :
+              bad={this.handleBadClick}
+              toggle={this.props.toggle}/> :
             <NextBooster same={this.nextBooster} new={this.props.toggle}/>
             }
           </div>

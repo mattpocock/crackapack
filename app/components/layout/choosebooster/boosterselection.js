@@ -23,9 +23,9 @@ class BoosterSelection extends React.Component {
                     boosterUrl: "https://cache.popcultcha.com.au/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/m/a/magic-gathering-eternal-masters-booster-display-box-large.1498521063.jpg"
                 },
                 {
-                    setCode: "IMA",
+                    setCode: "KTK",
                     backgroundUrl: "",
-                    boosterUrl: "https://d1rw89lz12ur5s.cloudfront.net/photo/facetofacegames/file/1068633/large/Capture.png?1505405808"
+                    boosterUrl: "https://images-na.ssl-images-amazon.com/images/I/51yhe26mMEL._SX355_.jpg"
                 },
                 {
                     setCode: "MM3",

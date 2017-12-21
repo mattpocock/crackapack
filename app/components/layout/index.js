@@ -25,16 +25,20 @@ class Layout extends React.Component {
     toggleMode(good, bad) {
         this.state.chooseBooster ? this.setState({chooseBooster : false}) : this.setState({chooseBooster: true});
         
-        if(good === undefined) {
+        if (good === undefined) {
             good = {
                 cards: []
-            };
-            bad = {
-                cards: []
-            };
+            }
         }
 
+        if (bad === undefined) {
+            bad = {
+                cards: []
+            }
+        }
+        
         this.setState({goodPile: good, badPile: bad});
+        
     }
 
     toggleSetCode(code) {

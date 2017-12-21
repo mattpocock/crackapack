@@ -25,14 +25,16 @@ class MainArea extends React.Component {
       return (
         <div className="container-fluid">
           <div className="row row-eq-height">
-            <div className="col-xs-4 dark">
+            <div className="col-xs-4 dark main-area__button__container">
               <button className="main-area__button" onClick={this.handleBadClick}>Shit Pile</button>
             </div>
             <div className="col-xs-4 darkish card__container">
+            <div className="card__under" style={{backgroundImage: "url("+this.props.underCard.imageUrl+")"}}>
               <img className="card" src={this.props.card.imageUrl}/>
-              <div className="card__under" style={{backgroundImage: "url("+this.props.underCard.imageUrl+")"}}/>
             </div>
-        <div className="col-xs-4 dark">
+              
+            </div>
+        <div className="col-xs-4 dark main-area__button__container">
           <button className="main-area__button" onClick={this.handleGoodClick}>Good Pile</button>
         </div>
       </div>

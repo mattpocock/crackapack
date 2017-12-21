@@ -60,11 +60,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(16);
+} else {
+  module.exports = __webpack_require__(17);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -254,21 +269,6 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(15);
-} else {
-  module.exports = __webpack_require__(16);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -429,7 +429,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = emptyObject;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 5 */
@@ -489,7 +489,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 6 */
@@ -558,7 +558,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 7 */
@@ -577,7 +577,7 @@ module.exports = warning;
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(5);
   var warning = __webpack_require__(6);
-  var ReactPropTypesSecret = __webpack_require__(17);
+  var ReactPropTypesSecret = __webpack_require__(18);
   var loggedTypeFailures = {};
 }
 
@@ -625,7 +625,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 
 module.exports = checkPropTypes;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 8 */
@@ -745,7 +745,7 @@ var EventListener = {
 };
 
 module.exports = EventListener;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 10 */
@@ -876,7 +876,7 @@ module.exports = shallowEqual;
  * 
  */
 
-var isTextNode = __webpack_require__(20);
+var isTextNode = __webpack_require__(21);
 
 /*eslint-disable no-bitwise */
 
@@ -937,14 +937,55 @@ module.exports = focusNode;
 /* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var React = __webpack_require__(1);
-var ReactDOM = __webpack_require__(18);
-var App = __webpack_require__(27);
+var React = __webpack_require__(0);
+
+class NextBooster extends React.Component {
+    render() {
+        return React.createElement(
+            "div",
+            { className: "container-fluid" },
+            React.createElement(
+                "div",
+                { className: "row row-eq-height" },
+                React.createElement("div", { className: "col-xs-2 dark" }),
+                React.createElement(
+                    "div",
+                    { className: "col-xs-4 darkish" },
+                    React.createElement(
+                        "button",
+                        { onClick: this.props.same },
+                        "Same again?"
+                    )
+                ),
+                React.createElement(
+                    "div",
+                    { className: "col-xs-4 darkish" },
+                    React.createElement(
+                        "button",
+                        { onClick: this.props.new },
+                        "Different Booster?"
+                    )
+                ),
+                React.createElement("div", { className: "col-xs-2 dark" })
+            )
+        );
+    }
+}
+
+module.exports = NextBooster;
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var React = __webpack_require__(0);
+var ReactDOM = __webpack_require__(19);
+var App = __webpack_require__(28);
 
 ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -972,7 +1013,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2334,10 +2375,10 @@ module.exports = react;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2356,7 +2397,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2394,15 +2435,15 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(19);
+  module.exports = __webpack_require__(20);
 } else {
-  module.exports = __webpack_require__(22);
+  module.exports = __webpack_require__(23);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2418,7 +2459,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(1),l=__webpack_require__(8),B=__webpack_require__(3),C=__webpack_require__(2),ba=__webpack_require__(9),da=__webpack_require__(10),ea=__webpack_require__(11),fa=__webpack_require__(12),ia=__webpack_require__(13),D=__webpack_require__(4);
+var aa=__webpack_require__(0),l=__webpack_require__(8),B=__webpack_require__(3),C=__webpack_require__(2),ba=__webpack_require__(9),da=__webpack_require__(10),ea=__webpack_require__(11),fa=__webpack_require__(12),ia=__webpack_require__(13),D=__webpack_require__(4);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -2638,7 +2679,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2653,7 +2694,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
  * @typechecks
  */
 
-var isNode = __webpack_require__(21);
+var isNode = __webpack_require__(22);
 
 /**
  * @param {*} object The object to check.
@@ -2666,7 +2707,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2694,7 +2735,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2715,7 +2756,7 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var React = __webpack_require__(1);
+var React = __webpack_require__(0);
 var invariant = __webpack_require__(5);
 var warning = __webpack_require__(6);
 var ExecutionEnvironment = __webpack_require__(8);
@@ -2728,8 +2769,8 @@ var containsNode = __webpack_require__(12);
 var focusNode = __webpack_require__(13);
 var emptyObject = __webpack_require__(4);
 var checkPropTypes = __webpack_require__(7);
-var hyphenateStyleName = __webpack_require__(23);
-var camelizeStyleName = __webpack_require__(25);
+var hyphenateStyleName = __webpack_require__(24);
+var camelizeStyleName = __webpack_require__(26);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -18093,10 +18134,10 @@ module.exports = reactDom;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18111,7 +18152,7 @@ module.exports = reactDom;
 
 
 
-var hyphenate = __webpack_require__(24);
+var hyphenate = __webpack_require__(25);
 
 var msPattern = /^ms-/;
 
@@ -18138,7 +18179,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18174,7 +18215,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18189,7 +18230,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(26);
+var camelize = __webpack_require__(27);
 
 var msPattern = /^-ms-/;
 
@@ -18217,7 +18258,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18252,11 +18293,11 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var React = __webpack_require__(1);
-var Layout = __webpack_require__(28);
+var React = __webpack_require__(0);
+var Layout = __webpack_require__(29);
 
 class App extends React.Component {
     render() {
@@ -18267,24 +18308,89 @@ class App extends React.Component {
 module.exports = App;
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var React = __webpack_require__(1);
+var React = __webpack_require__(0);
 
-var MainArea = __webpack_require__(29);
-var Pile = __webpack_require__(30);
+var Crack = __webpack_require__(30);
+var ChooseBooster = __webpack_require__(33);
 
 class Layout extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            setCode: "MM3",
+            chooseBooster: true,
+            goodPile: {
+                cards: []
+            },
+            badPile: {
+                cards: []
+            }
+        };
+
+        this.toggleMode = this.toggleMode.bind(this);
+        this.toggleSetCode = this.toggleSetCode.bind(this);
+    }
+
+    toggleMode(good, bad) {
+        this.state.chooseBooster ? this.setState({ chooseBooster: false }) : this.setState({ chooseBooster: true });
+
+        if (good === undefined) {
+            good = {
+                cards: []
+            };
+        }
+
+        if (bad === undefined) {
+            bad = {
+                cards: []
+            };
+        }
+
+        this.setState({ goodPile: good, badPile: bad });
+    }
+
+    toggleSetCode(code) {
+        this.setState({ setCode: code });
+    }
+
+    render() {
+        return React.createElement(
+            'div',
+            null,
+            this.state.chooseBooster ? React.createElement(ChooseBooster, { toggleSet: this.toggleSetCode, toggleMode: this.toggleMode }) : React.createElement(Crack, { goodPile: this.state.goodPile, badPile: this.state.badPile, toggle: this.toggleMode, setCode: this.state.setCode })
+        );
+    }
+}
+
+module.exports = Layout;
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var React = __webpack_require__(0);
+
+var MainArea = __webpack_require__(31);
+var Pile = __webpack_require__(32);
+var NextBooster = __webpack_require__(14);
+
+class Crack extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      setCode: "",
       boosterCount: 0,
+      lastCard: false,
       booster: {
         cards: []
       },
       mainCard: {},
+      underCard: {},
       goodPile: {
         cards: []
       },
@@ -18297,24 +18403,39 @@ class Layout extends React.Component {
     this.handleBadClick = this.handleBadClick.bind(this);
     this.nextCard = this.nextCard.bind(this);
     this.generateBooster = this.generateBooster.bind(this);
+    this.nextBooster = this.nextBooster.bind(this);
+    this.preparePiles = this.preparePiles.bind(this);
   }
 
   nextCard() {
-    var c = this.state.boosterCount + 1;
+    var c = this.state.boosterCount - 1;
 
-    if (c >= this.state.booster.cards.length) {
-      c = 0;
+    if (c > 0) {
+      this.setState({ boosterCount: c });
+      this.setState({
+        mainCard: this.state.booster.cards[c],
+        underCard: this.state.booster.cards[c - 1]
+      });
+    } else if (c === 0) {
+      this.setState({ boosterCount: c });
+      this.setState({
+        mainCard: this.state.booster.cards[c],
+        underCard: {}
+      });
+    } else if (c === -1) {
+      this.setState({ lastCard: true });
     }
+  }
 
-    this.setState({ boosterCount: c });
-    this.setState({ mainCard: this.state.booster.cards[c] });
+  nextBooster() {
+    this.generateBooster(this.props.setCode);
   }
 
   handleGoodClick(e) {
     var card = this.state.mainCard;
     var arr = this.state.goodPile.cards;
     arr.push(card);
-    if (arr.length > 8) {
+    if (arr.length > 16) {
       arr.splice(0, 1);
     }
     this.setState({ goodPile: {
@@ -18326,7 +18447,7 @@ class Layout extends React.Component {
     var card = this.state.mainCard;
     var arr = this.state.badPile.cards;
     arr.push(card);
-    if (arr.length > 8) {
+    if (arr.length > 16) {
       arr.splice(0, 1);
     }
     this.setState({ badPile: {
@@ -18335,22 +18456,44 @@ class Layout extends React.Component {
   }
 
   generateBooster(set) {
+
     fetch('https://api.magicthegathering.io/v1/sets/' + set + '/booster').then(function (response) {
       return response.json();
     }).then(function (json) {
-      console.log(json);
-    });
+      this.setState({ booster: json,
+        lastCard: false
+      });
+      this.setState({ boosterCount: this.state.booster.cards.length - 1 });
+      this.setState({
+        mainCard: this.state.booster.cards[this.state.boosterCount],
+        underCard: this.state.booster.cards[this.state.boosterCount - 1]
+      });
+    }.bind(this));
+  }
+
+  preparePiles() {
+    var goodPile = this.props.goodPile || {};
+    if (goodPile === undefined) {
+      goodPile = { cards: [] };
+    };
+    var badPile = this.props.badPile || {};
+    if (badPile === undefined) {
+      badPile = { cards: [] };
+    };
+    this.setState({ goodPile: goodPile, badPile: badPile });
+    console.log(goodPile);
+    console.log(badPile);
   }
 
   componentWillMount() {
-    this.setState({ mainCard: this.state.booster.cards[this.state.boosterCount] });
-    this.generateBooster('HOU');
+    this.generateBooster(this.props.setCode);
+    this.preparePiles();
   }
 
   render() {
     return React.createElement(
       'div',
-      { className: 'container-fluid', onKeyDown: this.handleKeyPress },
+      { className: 'container-fluid' },
       React.createElement(
         'div',
         { className: 'row' },
@@ -18363,7 +18506,26 @@ class Layout extends React.Component {
         React.createElement(
           'div',
           { className: 'col-md-6 background light' },
-          React.createElement(MainArea, { card: this.state.mainCard, next: this.nextCard, good: this.handleGoodClick, bad: this.handleBadClick })
+          React.createElement(
+            'div',
+            { className: 'row' },
+            React.createElement(
+              'h1',
+              { className: 'align-center' },
+              'Crack A Pack'
+            ),
+            React.createElement(
+              'h4',
+              { className: 'align-center' },
+              'Got any more of dem packs?'
+            )
+          ),
+          !this.state.lastCard ? React.createElement(MainArea, { card: this.state.mainCard,
+            underCard: this.state.underCard,
+            next: this.nextCard,
+            good: this.handleGoodClick,
+            bad: this.handleBadClick,
+            toggle: this.props.toggle }) : React.createElement(NextBooster, { same: this.nextBooster, 'new': this.props.toggle })
         ),
         React.createElement(
           'div',
@@ -18376,15 +18538,18 @@ class Layout extends React.Component {
   }
 }
 
-module.exports = Layout;
+module.exports = Crack;
 
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var React = __webpack_require__(1);
+var React = __webpack_require__(0);
+
+var NextBooster = __webpack_require__(14);
 
 class MainArea extends React.Component {
+
   constructor(props) {
     super(props);
 
@@ -18404,71 +18569,66 @@ class MainArea extends React.Component {
 
   render() {
     return React.createElement(
-      "div",
-      { className: "container-fluid" },
+      'div',
+      { className: 'container-fluid' },
       React.createElement(
-        "div",
-        { className: "row" },
+        'div',
+        { className: 'row row-eq-height' },
         React.createElement(
-          "h1",
-          { className: "align-center" },
-          "Crack A Pack"
-        ),
-        React.createElement(
-          "h4",
-          { className: "align-center" },
-          "Got any more of dem packs?"
-        )
-      ),
-      React.createElement(
-        "div",
-        { className: "row row-eq-height" },
-        React.createElement(
-          "div",
-          { className: "col-xs-4 dark" },
+          'div',
+          { className: 'col-xs-4 dark main-area__button__container' },
           React.createElement(
-            "button",
-            { className: "main-area__button", onClick: this.handleBadClick },
-            "Shit Pile"
+            'button',
+            { className: 'main-area__button', onClick: this.handleBadClick },
+            'Shit Pile'
           )
         ),
         React.createElement(
-          "div",
-          { className: "col-xs-4 darkish" },
-          React.createElement("img", { className: "card", src: this.props.card.image })
+          'div',
+          { className: 'col-xs-4 darkish card__container' },
+          React.createElement(
+            'div',
+            { className: 'card__under', style: { backgroundImage: "url(" + this.props.underCard.imageUrl + ")" } },
+            React.createElement('img', { className: 'card', src: this.props.card.imageUrl })
+          )
         ),
         React.createElement(
-          "div",
-          { className: "col-xs-4 dark" },
+          'div',
+          { className: 'col-xs-4 dark main-area__button__container' },
           React.createElement(
-            "button",
-            { className: "main-area__button", onClick: this.handleGoodClick },
-            "Good Pile"
+            'button',
+            { className: 'main-area__button', onClick: this.handleGoodClick },
+            'Good Pile'
           )
         )
       ),
       React.createElement(
-        "div",
-        { className: "row" },
-        React.createElement("div", { className: "col-xs-3 hidden-md" }),
+        'div',
+        { className: 'row' },
+        React.createElement('div', { className: 'col-xs-3 hidden-md' }),
         React.createElement(
-          "div",
-          { className: "col-xs-6 col-md-12 dark" },
+          'div',
+          { className: 'col-xs-6 col-md-12 dark' },
           React.createElement(
-            "h3",
-            { className: "fadeInLeft" },
-            this.props.card.title,
-            " (",
+            'h3',
+            { className: 'fadeInLeft' },
+            this.props.card.name,
+            ' (',
             this.props.card.rarity,
-            ")"
+            ')'
           ),
           React.createElement(
-            "p",
-            { className: "fadeInLeft" },
-            "Lorem ipsum etc asodjhbasd jhas djhs dhb shbba shjasdjb asjhbdas bs asjhdb ajhasdbasd jhasd b"
+            'h4',
+            { className: 'fadeInLeft' },
+            this.props.card.type
+          ),
+          React.createElement(
+            'p',
+            { className: 'fadeInLeft' },
+            this.props.card.text
           )
         ),
-        React.createElement("div", { className: "col-xs-3 hidden-md" })
+        React.createElement('div', { className: 'col-xs-3 hidden-md' })
       )
     );
   }
@@ -18477,10 +18637,10 @@ class MainArea extends React.Component {
 module.exports = MainArea;
 
 /***/ }),
-/* 30 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var React = __webpack_require__(1);
+var React = __webpack_require__(0);
 
 class Pile extends React.Component {
 
@@ -18489,7 +18649,7 @@ class Pile extends React.Component {
       "div",
       { className: "pile" },
       this.props.data.cards.map(function (item, i) {
-        return React.createElement("div", { key: i, className: "pile__card", style: { backgroundImage: "url(" + item.image + ")" } });
+        return React.createElement("div", { key: i, className: "pile__card", style: { backgroundImage: "url(" + item.imageUrl + ")" } });
       }),
       React.createElement(
         "div",
@@ -18505,6 +18665,166 @@ class Pile extends React.Component {
 }
 
 module.exports = Pile;
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var React = __webpack_require__(0);
+
+var BoosterSelection = __webpack_require__(34);
+
+class ChooseBooster extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = { backgroundImage: "" };
+    }
+
+    changeBackground(url) {
+        this.setState({ backgroundImage: url });
+    }
+
+    render() {
+        return React.createElement(
+            'div',
+            { className: 'container-fluid' },
+            React.createElement(
+                'div',
+                { className: 'row' },
+                React.createElement('div', { className: 'col-md-3 background hidden-sm hidden-xs dark' }),
+                React.createElement(
+                    'div',
+                    { className: 'col-md-6 background light' },
+                    React.createElement(
+                        'div',
+                        { className: 'row' },
+                        React.createElement(
+                            'h1',
+                            { className: 'align-center' },
+                            'Crack A Pack'
+                        ),
+                        React.createElement(
+                            'h4',
+                            { className: 'align-center' },
+                            'Got any more of dem packs?'
+                        )
+                    ),
+                    React.createElement(BoosterSelection, { toggleSet: this.props.toggleSet, toggleMode: this.props.toggleMode })
+                ),
+                React.createElement('div', { className: 'col-md-3 background hidden-sm hidden-xs dark' })
+            )
+        );
+    }
+}
+
+module.exports = ChooseBooster;
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var React = __webpack_require__(0);
+
+class BoosterSelection extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            sets: [{
+                setCode: "IMA",
+                backgroundUrl: "",
+                boosterUrl: "https://d1rw89lz12ur5s.cloudfront.net/photo/facetofacegames/file/1068633/large/Capture.png?1505405808"
+            }, {
+                setCode: "MM3",
+                backgroundUrl: "",
+                boosterUrl: "http://i.ebayimg.com/images/i/192111412116-0-1/s-l1000.jpg"
+            }, {
+                setCode: "EMA",
+                backgroundUrl: "",
+                boosterUrl: "https://cache.popcultcha.com.au/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/m/a/magic-gathering-eternal-masters-booster-display-box-large.1498521063.jpg"
+            }, {
+                setCode: "KTK",
+                backgroundUrl: "",
+                boosterUrl: "https://images-na.ssl-images-amazon.com/images/I/51yhe26mMEL._SX355_.jpg"
+            }, {
+                setCode: "MM3",
+                backgroundUrl: "",
+                boosterUrl: "http://i.ebayimg.com/images/i/192111412116-0-1/s-l1000.jpg"
+            }, {
+                setCode: "EMA",
+                backgroundUrl: "",
+                boosterUrl: "https://cache.popcultcha.com.au/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/m/a/magic-gathering-eternal-masters-booster-display-box-large.1498521063.jpg"
+            }],
+            firstCol: [],
+            secondCol: [],
+            thirdCol: []
+        };
+
+        this.fillColumns = this.fillColumns.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(e) {
+        this.props.toggleSet(e.target.alt);
+        this.props.toggleMode();
+    }
+
+    fillColumns() {
+        for (var i = 0; i < this.state.sets.length; i++) {
+            if (i % 3 === 1) {
+                var c = this.state.firstCol;
+                c.push(this.state.sets[i]);
+                this.setState({ firstCol: c });
+            } else if (i % 3 === 2) {
+                var c = this.state.secondCol;
+                c.push(this.state.sets[i]);
+                this.setState({ secondCol: c });
+            } else {
+                var c = this.state.thirdCol;
+                c.push(this.state.sets[i]);
+                this.setState({ thirdCol: c });
+            }
+        }
+    }
+
+    componentWillMount() {
+
+        this.fillColumns();
+    }
+
+    render() {
+        return React.createElement(
+            "div",
+            { className: "row" },
+            React.createElement(
+                "div",
+                { className: "col-xs-4" },
+                this.state.firstCol.map(function (item, i) {
+                    return React.createElement("img", { key: i, alt: item.setCode, className: "booster", onClick: this.handleClick, src: item.boosterUrl });
+                }, this)
+            ),
+            React.createElement(
+                "div",
+                { className: "col-xs-4" },
+                this.state.secondCol.map(function (item, i) {
+                    return React.createElement("img", { key: i, alt: item.setCode, className: "booster", onClick: this.handleClick, src: item.boosterUrl });
+                }, this)
+            ),
+            React.createElement(
+                "div",
+                { className: "col-xs-4" },
+                this.state.thirdCol.map(function (item, i) {
+                    return React.createElement("img", { key: i, alt: item.setCode, className: "booster", onClick: this.handleClick, src: item.boosterUrl });
+                }, this)
+            )
+        );
+    }
+}
+
+module.exports = BoosterSelection;
 
 /***/ })
 /******/ ]);

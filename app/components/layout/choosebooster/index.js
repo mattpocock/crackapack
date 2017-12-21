@@ -3,6 +3,18 @@ var React = require('react');
 var BoosterSelection = require('./boosterselection')
 
 class ChooseBooster extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {backgroundImage: ""};
+        
+    }
+
+    changeBackground(url) {
+        this.setState({backgroundImage: url});
+    }
+
     render() {
         return (
             <div className="container-fluid">
