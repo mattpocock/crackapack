@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 19);
+/******/ 	return __webpack_require__(__webpack_require__.s = 21);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -71,9 +71,9 @@
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(20);
+  module.exports = __webpack_require__(22);
 } else {
-  module.exports = __webpack_require__(21);
+  module.exports = __webpack_require__(23);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
@@ -586,11 +586,11 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(40)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(38)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(41)();
+  module.exports = __webpack_require__(39)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
@@ -720,9 +720,9 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(22);
+  module.exports = __webpack_require__(24);
 } else {
-  module.exports = __webpack_require__(25);
+  module.exports = __webpack_require__(27);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
@@ -976,7 +976,7 @@ module.exports = shallowEqual;
  * 
  */
 
-var isTextNode = __webpack_require__(23);
+var isTextNode = __webpack_require__(25);
 
 /*eslint-disable no-bitwise */
 
@@ -1037,6 +1037,64 @@ module.exports = focusNode;
 /* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var React = __webpack_require__(0);
+
+class NextBooster extends React.Component {
+    render() {
+        return React.createElement(
+            "div",
+            { className: "container-fluid" },
+            React.createElement(
+                "div",
+                { className: "row row-eq-height" },
+                React.createElement("div", { className: "col-xs-2 dark" }),
+                React.createElement(
+                    "div",
+                    { className: "col-xs-4 darkish" },
+                    React.createElement(
+                        "button",
+                        { onClick: this.props.same },
+                        "Same again?"
+                    )
+                ),
+                React.createElement(
+                    "div",
+                    { className: "col-xs-4 darkish" },
+                    React.createElement(
+                        "button",
+                        { onClick: this.props.new },
+                        "Different Booster?"
+                    )
+                ),
+                React.createElement("div", { className: "col-xs-2 dark" })
+            )
+        );
+    }
+}
+
+module.exports = NextBooster;
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+module.exports = __webpack_require__(37);
+
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
@@ -1047,7 +1105,7 @@ exports.default = !!(typeof window !== 'undefined' && window.document && window.
 module.exports = exports['default'];
 
 /***/ }),
-/* 18 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1102,17 +1160,17 @@ var nameShape = exports.nameShape = _propTypes2.default.oneOfType([_propTypes2.d
 })]);
 
 /***/ }),
-/* 19 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var React = __webpack_require__(0);
 var ReactDOM = __webpack_require__(10);
-var App = __webpack_require__(30);
+var App = __webpack_require__(32);
 
 ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
 
 /***/ }),
-/* 20 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1140,7 +1198,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2505,7 +2563,7 @@ module.exports = react;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 22 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2741,7 +2799,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
 
 
 /***/ }),
-/* 23 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2756,7 +2814,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
  * @typechecks
  */
 
-var isNode = __webpack_require__(24);
+var isNode = __webpack_require__(26);
 
 /**
  * @param {*} object The object to check.
@@ -2769,7 +2827,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 24 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2797,7 +2855,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 25 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2831,8 +2889,8 @@ var containsNode = __webpack_require__(15);
 var focusNode = __webpack_require__(16);
 var emptyObject = __webpack_require__(5);
 var checkPropTypes = __webpack_require__(8);
-var hyphenateStyleName = __webpack_require__(26);
-var camelizeStyleName = __webpack_require__(28);
+var hyphenateStyleName = __webpack_require__(28);
+var camelizeStyleName = __webpack_require__(30);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -18199,7 +18257,7 @@ module.exports = reactDom;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 26 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18214,7 +18272,7 @@ module.exports = reactDom;
 
 
 
-var hyphenate = __webpack_require__(27);
+var hyphenate = __webpack_require__(29);
 
 var msPattern = /^ms-/;
 
@@ -18241,7 +18299,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 27 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18277,7 +18335,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 28 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18292,7 +18350,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(29);
+var camelize = __webpack_require__(31);
 
 var msPattern = /^-ms-/;
 
@@ -18320,7 +18378,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18355,11 +18413,11 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 30 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var React = __webpack_require__(0);
-var Layout = __webpack_require__(31);
+var Layout = __webpack_require__(33);
 
 class App extends React.Component {
     render() {
@@ -18370,18 +18428,18 @@ class App extends React.Component {
 module.exports = App;
 
 /***/ }),
-/* 31 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var React = __webpack_require__(0);
 
-var Crack = __webpack_require__(32);
-var ChooseBooster = __webpack_require__(33);
-var Pile = __webpack_require__(35);
-var Background = __webpack_require__(36);
-var Stats = __webpack_require__(37);
+var Crack = __webpack_require__(34);
+var ChooseBooster = __webpack_require__(51);
+var Pile = __webpack_require__(53);
+var Background = __webpack_require__(54);
+var Stats = __webpack_require__(55);
 
-var ReactCSSTransitionGroup = __webpack_require__(38);
+var ReactCSSTransitionGroup = __webpack_require__(18);
 
 class Layout extends React.Component {
 
@@ -18538,154 +18596,149 @@ class Layout extends React.Component {
 module.exports = Layout;
 
 /***/ }),
-/* 32 */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed: SyntaxError: C:/Users/Matt/Documents/Developing/react-test/app/components/layout/crack/index.js: Unexpected token (34:4)\n\n\u001b[0m \u001b[90m 32 | \u001b[39m    }\n \u001b[90m 33 | \u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 34 | \u001b[39m    \u001b[37m\u001b[41m\u001b[1m@\u001b[22m\u001b[49m\u001b[39mkeydown( \u001b[35m37\u001b[39m ) \u001b[90m// or specify `which` code directly, in this case 13\u001b[39m\n \u001b[90m    | \u001b[39m    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 35 | \u001b[39m      submit( event ) {\n \u001b[90m 36 | \u001b[39m        event\u001b[33m.\u001b[39mpreventDefault()\u001b[33m;\u001b[39m\n \u001b[90m 37 | \u001b[39m        \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mprops\u001b[33m.\u001b[39mgoodClickHandler(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mstate\u001b[33m.\u001b[39mmainCard)\u001b[33m;\u001b[39m\u001b[0m\n");
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var React = __webpack_require__(0);
-
-var BoosterSelection = __webpack_require__(34);
-
-class ChooseBooster extends React.Component {
-
-    constructor(props) {
-        super(props);
-
-        this.state = { backgroundImage: "" };
-    }
-
-    changeBackground(url) {
-        this.setState({ backgroundImage: url });
-    }
-
-    render() {
-        return React.createElement(
-            'div',
-            { className: 'col-md-12 background light' },
-            React.createElement(
-                'div',
-                { className: 'row' },
-                React.createElement(
-                    'h1',
-                    { className: 'align-center' },
-                    'Crack A Pack'
-                ),
-                React.createElement(
-                    'h4',
-                    { className: 'align-center' },
-                    'Got any more of dem packs?'
-                )
-            ),
-            React.createElement(BoosterSelection, { toggleSet: this.props.toggleSet, toggleMode: this.props.toggleMode })
-        );
-    }
-}
-
-module.exports = ChooseBooster;
-
-/***/ }),
 /* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var React = __webpack_require__(0);
 
-class BoosterSelection extends React.Component {
+var MainArea = __webpack_require__(35);
+var NextBooster = __webpack_require__(17);
+var Loader = __webpack_require__(50);
 
-    constructor(props) {
-        super(props);
+class Crack extends React.Component {
 
-        this.state = {
-            sets: [{
-                setCode: "IMA",
-                boosterUrl: "https://d1rw89lz12ur5s.cloudfront.net/photo/facetofacegames/file/1068633/large/Capture.png?1505405808"
-            }, {
-                setCode: "MM3",
-                boosterUrl: "http://i.ebayimg.com/images/i/192111412116-0-1/s-l1000.jpg"
-            }, {
-                setCode: "XLN",
-                boosterUrl: "http://media.wizards.com/2017/images/magic/xln_prd_blk/plrplr-01-XLN_Boosters_en.jpg"
-            }, {
-                setCode: "KTK",
-                boosterUrl: "https://images-na.ssl-images-amazon.com/images/I/51yhe26mMEL._SX355_.jpg"
-            }, {
-                setCode: "BFZ",
-                boosterUrl: "https://i.ebayimg.com/images/g/DysAAOSwT6pV6R9x/s-l300.jpg"
-            }, {
-                setCode: "EMA",
-                boosterUrl: "https://cache.popcultcha.com.au/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/m/a/magic-gathering-eternal-masters-booster-display-box-large.1498521063.jpg"
-            }],
-            firstCol: [],
-            secondCol: [],
-            thirdCol: []
-        };
+  constructor(props) {
+    super(props);
+    this.state = {
+      setCode: "",
+      boosterCount: 0,
+      lastCard: false,
+      boostersOpened: 1,
+      imagesLoaded: 0,
+      loaded: false,
+      loadPercent: 0,
+      booster: {
+        cards: []
+      },
+      mainCard: {},
+      underCard: {}
 
-        this.fillColumns = this.fillColumns.bind(this);
-        this.handleClick = this.handleClick.bind(this);
+    };
+
+    this.nextCard = this.nextCard.bind(this);
+    this.generateBooster = this.generateBooster.bind(this);
+    this.nextBooster = this.nextBooster.bind(this);
+    this.handleImageLoaded = this.handleImageLoaded.bind(this);
+  }
+
+  nextCard() {
+    var c = this.state.boosterCount - 1;
+
+    if (c > 0) {
+      this.setState({ boosterCount: c });
+      this.setState({
+        mainCard: this.state.booster.cards[c],
+        underCard: this.state.booster.cards[c - 1]
+      });
+    } else if (c === 0) {
+      this.setState({ boosterCount: c });
+      this.setState({
+        mainCard: this.state.booster.cards[c],
+        underCard: {}
+      });
+    } else if (c === -1) {
+      this.setState({ lastCard: true });
     }
+  }
 
-    handleClick(e) {
-        this.props.toggleSet(e.target.alt);
-        this.props.toggleMode();
-    }
+  handleImageLoaded(response) {
+    var c = this.state.imagesLoaded + 1;
 
-    fillColumns() {
-        for (var i = 0; i < this.state.sets.length; i++) {
-            if (i % 3 === 1) {
-                var c = this.state.firstCol;
-                c.push(this.state.sets[i]);
-                this.setState({ firstCol: c });
-            } else if (i % 3 === 2) {
-                var c = this.state.secondCol;
-                c.push(this.state.sets[i]);
-                this.setState({ secondCol: c });
-            } else {
-                var c = this.state.thirdCol;
-                c.push(this.state.sets[i]);
-                this.setState({ thirdCol: c });
-            }
-        }
-    }
+    var l = this.state.booster.cards.length;
 
-    componentWillMount() {
+    var percent = Math.ceil(c / l * 100);
 
-        this.fillColumns();
-    }
+    var loaded = false;
+    if (percent === 100) {
+      loaded = true;
+      percent = 0;
+      c = 0;
+    };
 
-    render() {
-        return React.createElement(
-            "div",
-            { className: "row" },
+    this.setState({
+      loaded: loaded,
+      imagesLoaded: c,
+      loadPercent: percent
+    });
+  }
+
+  nextBooster() {
+    this.generateBooster(this.props.setCode);
+    this.props.updateBoosters();
+  }
+
+  generateBooster(set) {
+
+    fetch('https://api.magicthegathering.io/v1/sets/' + set + '/booster').then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      this.setState({ booster: json,
+        lastCard: false
+      });
+      this.setState({ boosterCount: this.state.booster.cards.length - 1 });
+      this.setState({
+        mainCard: this.state.booster.cards[this.state.boosterCount],
+        underCard: this.state.booster.cards[this.state.boosterCount - 1]
+      });
+    }.bind(this));
+  }
+
+  componentWillMount() {
+    this.generateBooster(this.props.setCode);
+  }
+
+  render() {
+    return React.createElement(
+      'div',
+      { className: 'container-fluid' },
+      React.createElement(
+        'div',
+        { className: 'row' },
+        React.createElement(
+          'div',
+          { className: 'col-md-12 background light' },
+          React.createElement(
+            'div',
+            { className: 'row' },
             React.createElement(
-                "div",
-                { className: "col-xs-4" },
-                this.state.firstCol.map(function (item, i) {
-                    return React.createElement("img", { key: i, alt: item.setCode, className: "booster", onClick: this.handleClick, src: item.boosterUrl });
-                }, this)
+              'h1',
+              { className: 'align-center' },
+              'Crack A Pack'
             ),
             React.createElement(
-                "div",
-                { className: "col-xs-4" },
-                this.state.secondCol.map(function (item, i) {
-                    return React.createElement("img", { key: i, alt: item.setCode, className: "booster", onClick: this.handleClick, src: item.boosterUrl });
-                }, this)
-            ),
-            React.createElement(
-                "div",
-                { className: "col-xs-4" },
-                this.state.thirdCol.map(function (item, i) {
-                    return React.createElement("img", { key: i, alt: item.setCode, className: "booster", onClick: this.handleClick, src: item.boosterUrl });
-                }, this)
+              'h4',
+              { className: 'align-center' },
+              'Got any more of dem packs?'
             )
-        );
-    }
+          ),
+          this.state.booster.cards.slice(0).reverse().map(function (item, i) {
+            return React.createElement('img', { key: i, src: item.imageUrl, className: 'card__prep', onLoad: this.handleImageLoaded });
+          }.bind(this)),
+          !this.state.loaded ? React.createElement(Loader, { loadPercent: this.state.loadPercent }) : !this.state.lastCard ? React.createElement(MainArea, { card: this.state.mainCard,
+            underCard: this.state.underCard,
+            next: this.nextCard,
+            goodClickHandler: this.props.goodClickHandler,
+            badClickHandler: this.props.badClickHandler,
+            boosterCount: this.state.boosterCount,
+            toggle: this.props.toggle }) : React.createElement(NextBooster, { same: this.nextBooster, 'new': this.props.toggle }),
+          '}'
+        )
+      )
+    );
+  }
 }
 
-module.exports = BoosterSelection;
+module.exports = Crack;
 
 /***/ }),
 /* 35 */
@@ -18693,29 +18746,107 @@ module.exports = BoosterSelection;
 
 var React = __webpack_require__(0);
 
-class Pile extends React.Component {
+var NextBooster = __webpack_require__(17);
+var Card = __webpack_require__(36);
+var ReactCSSTransitionGroup = __webpack_require__(18);
+
+class MainArea extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.handleGoodClick = this.handleGoodClick.bind(this);
+    this.handleBadClick = this.handleBadClick.bind(this);
+  }
+
+  handleBadClick() {
+    this.props.badClickHandler(this.props.card);
+    this.props.next();
+  }
+
+  handleGoodClick() {
+    this.props.goodClickHandler(this.props.card);
+    this.props.next();
+  }
 
   render() {
     return React.createElement(
-      "div",
-      { className: "pile" },
-      this.props.data.cards.map(function (item, i) {
-        return React.createElement("div", { key: i, className: "pile__card", style: { backgroundImage: "url(" + item.imageUrl + ")" } });
-      }),
-      this.props.data.cards.length > 0 && React.createElement(
-        "div",
-        { className: "pile__topbar" },
+      'div',
+      { className: 'container-fluid' },
+      React.createElement(
+        'div',
+        { className: 'row row-eq-height' },
         React.createElement(
-          "button",
-          null,
-          "Clear"
+          'div',
+          { className: 'col-xs-2 main-area__button__container' },
+          React.createElement(
+            'button',
+            { className: 'main-area__button', onClick: this.handleBadClick },
+            'Shit Pile'
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'col-xs-8 card__container' },
+          React.createElement(
+            ReactCSSTransitionGroup,
+            {
+              transitionEnter: true,
+              transitionLeave: true,
+              transitionName: 'fade' },
+            React.createElement(Card, { underCard: this.props.underCard, card: this.props.card, key: this.props.boosterCount })
+          )
+        ),
+        React.createElement(
+          'div',
+          { className: 'col-xs-2 main-area__button__container' },
+          React.createElement(
+            'button',
+            { className: 'main-area__button', onClick: this.handleGoodClick },
+            'Good Pile'
+          )
         )
+      ),
+      React.createElement(
+        'div',
+        { className: 'row' },
+        React.createElement('div', { className: 'col-xs-3 hidden-md' }),
+        React.createElement(
+          ReactCSSTransitionGroup,
+          {
+            transitionEnter: true,
+            transitionLeave: true,
+            transitionName: 'fade' },
+          React.createElement(
+            'div',
+            { key: this.props.card.name, className: 'col-xs-6 col-md-12' },
+            React.createElement(
+              'h3',
+              { className: 'fadeInLeft' },
+              this.props.card.name,
+              ' (',
+              this.props.card.rarity,
+              ')'
+            ),
+            React.createElement(
+              'h4',
+              { className: 'fadeInLeft' },
+              this.props.card.type
+            ),
+            React.createElement(
+              'p',
+              { className: 'fadeInLeft' },
+              this.props.card.text
+            )
+          )
+        ),
+        React.createElement('div', { className: 'col-xs-3 hidden-md' })
       )
     );
   }
 }
 
-module.exports = Pile;
+module.exports = MainArea;
 
 /***/ }),
 /* 36 */
@@ -18723,71 +18854,17 @@ module.exports = Pile;
 
 var React = __webpack_require__(0);
 
-class Background extends React.Component {
+class Card extends React.Component {
+
     render() {
-        return React.createElement("div", {
-            className: "fixed-backdrop",
-            style: { backgroundImage: "url(" + this.props.src + ")" } });
+        return React.createElement("img", { className: "card", src: this.props.card.imageUrl });
     }
 }
 
-module.exports = Background;
+module.exports = Card;
 
 /***/ }),
 /* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var React = __webpack_require__(0);
-
-class Stats extends React.Component {
-
-    render() {
-        return React.createElement(
-            "div",
-            { className: "stat-box" },
-            React.createElement(
-                "p",
-                null,
-                "Boosters Opened: ",
-                this.props.boostersOpened
-            ),
-            React.createElement(
-                "p",
-                null,
-                "Good Pulls: ",
-                this.props.goodPulls
-            ),
-            React.createElement(
-                "p",
-                null,
-                "Bad Pulls: ",
-                this.props.badPulls
-            )
-        );
-    }
-}
-
-module.exports = Stats;
-
-/***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-module.exports = __webpack_require__(39);
-
-
-/***/ }),
-/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18805,15 +18882,15 @@ var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _TransitionGroup = __webpack_require__(42);
+var _TransitionGroup = __webpack_require__(40);
 
 var _TransitionGroup2 = _interopRequireDefault(_TransitionGroup);
 
-var _CSSTransitionGroupChild = __webpack_require__(46);
+var _CSSTransitionGroupChild = __webpack_require__(44);
 
 var _CSSTransitionGroupChild2 = _interopRequireDefault(_CSSTransitionGroupChild);
 
-var _PropTypes = __webpack_require__(18);
+var _PropTypes = __webpack_require__(20);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18888,7 +18965,7 @@ module.exports = exports['default'];
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 40 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19438,7 +19515,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 41 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19503,7 +19580,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 42 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19513,7 +19590,7 @@ exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _chainFunction = __webpack_require__(43);
+var _chainFunction = __webpack_require__(41);
 
 var _chainFunction2 = _interopRequireDefault(_chainFunction);
 
@@ -19525,11 +19602,11 @@ var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _warning = __webpack_require__(44);
+var _warning = __webpack_require__(42);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _ChildMapping = __webpack_require__(45);
+var _ChildMapping = __webpack_require__(43);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19779,7 +19856,7 @@ module.exports = exports['default'];
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 43 */
+/* 41 */
 /***/ (function(module, exports) {
 
 
@@ -19805,7 +19882,7 @@ module.exports = function chain(){
 
 
 /***/ }),
-/* 44 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19873,7 +19950,7 @@ module.exports = warning;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 45 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19970,7 +20047,7 @@ function mergeChildMappings(prev, next) {
 }
 
 /***/ }),
-/* 46 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19980,19 +20057,19 @@ exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _addClass = __webpack_require__(47);
+var _addClass = __webpack_require__(45);
 
 var _addClass2 = _interopRequireDefault(_addClass);
 
-var _removeClass = __webpack_require__(49);
+var _removeClass = __webpack_require__(47);
 
 var _removeClass2 = _interopRequireDefault(_removeClass);
 
-var _requestAnimationFrame = __webpack_require__(50);
+var _requestAnimationFrame = __webpack_require__(48);
 
 var _requestAnimationFrame2 = _interopRequireDefault(_requestAnimationFrame);
 
-var _properties = __webpack_require__(51);
+var _properties = __webpack_require__(49);
 
 var _react = __webpack_require__(0);
 
@@ -20004,7 +20081,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactDom = __webpack_require__(10);
 
-var _PropTypes = __webpack_require__(18);
+var _PropTypes = __webpack_require__(20);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20206,7 +20283,7 @@ module.exports = exports['default'];
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 47 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20217,7 +20294,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = addClass;
 
-var _hasClass = __webpack_require__(48);
+var _hasClass = __webpack_require__(46);
 
 var _hasClass2 = _interopRequireDefault(_hasClass);
 
@@ -20229,7 +20306,7 @@ function addClass(element, className) {
 module.exports = exports['default'];
 
 /***/ }),
-/* 48 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20245,7 +20322,7 @@ function hasClass(element, className) {
 module.exports = exports["default"];
 
 /***/ }),
-/* 49 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20260,7 +20337,7 @@ module.exports = function removeClass(element, className) {
 };
 
 /***/ }),
-/* 50 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20270,7 +20347,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _inDOM = __webpack_require__(17);
+var _inDOM = __webpack_require__(19);
 
 var _inDOM2 = _interopRequireDefault(_inDOM);
 
@@ -20319,7 +20396,7 @@ exports.default = compatRaf;
 module.exports = exports['default'];
 
 /***/ }),
-/* 51 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20330,7 +20407,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.animationEnd = exports.animationDelay = exports.animationTiming = exports.animationDuration = exports.animationName = exports.transitionEnd = exports.transitionDuration = exports.transitionDelay = exports.transitionTiming = exports.transitionProperty = exports.transform = undefined;
 
-var _inDOM = __webpack_require__(17);
+var _inDOM = __webpack_require__(19);
 
 var _inDOM2 = _interopRequireDefault(_inDOM);
 
@@ -20433,6 +20510,279 @@ function getTransitionProperties() {
 
   return { animationEnd: animationEnd, transitionEnd: transitionEnd, prefix: prefix };
 }
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var React = __webpack_require__(0);
+
+class Loader extends React.Component {
+  render() {
+    return React.createElement(
+      "div",
+      { className: "container-fluid" },
+      React.createElement(
+        "div",
+        { className: "row row-eq-height" },
+        React.createElement("div", { className: "col-xs-2 main-area__button__container" }),
+        React.createElement(
+          "div",
+          { className: "col-xs-8 card__container" },
+          React.createElement(
+            "div",
+            { className: "loader__container" },
+            React.createElement(
+              "h1",
+              { className: "loader__text" },
+              this.props.loadPercent,
+              "%"
+            ),
+            React.createElement(
+              "div",
+              { className: "loader__mover", style: { height: this.props.loadPercent + "%" } },
+              React.createElement(
+                "h1",
+                { className: "loader__text" },
+                this.props.loadPercent,
+                "%"
+              )
+            )
+          )
+        ),
+        React.createElement("div", { className: "col-xs-2 main-area__button__container" })
+      )
+    );
+  }
+}
+
+module.exports = Loader;
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var React = __webpack_require__(0);
+
+var BoosterSelection = __webpack_require__(52);
+
+class ChooseBooster extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = { backgroundImage: "" };
+    }
+
+    changeBackground(url) {
+        this.setState({ backgroundImage: url });
+    }
+
+    render() {
+        return React.createElement(
+            'div',
+            { className: 'col-md-12 background light' },
+            React.createElement(
+                'div',
+                { className: 'row' },
+                React.createElement(
+                    'h1',
+                    { className: 'align-center' },
+                    'Crack A Pack'
+                ),
+                React.createElement(
+                    'h4',
+                    { className: 'align-center' },
+                    'Got any more of dem packs?'
+                )
+            ),
+            React.createElement(BoosterSelection, { toggleSet: this.props.toggleSet, toggleMode: this.props.toggleMode })
+        );
+    }
+}
+
+module.exports = ChooseBooster;
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var React = __webpack_require__(0);
+
+class BoosterSelection extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            sets: [{
+                setCode: "IMA",
+                boosterUrl: "https://d1rw89lz12ur5s.cloudfront.net/photo/facetofacegames/file/1068633/large/Capture.png?1505405808"
+            }, {
+                setCode: "MM3",
+                boosterUrl: "http://i.ebayimg.com/images/i/192111412116-0-1/s-l1000.jpg"
+            }, {
+                setCode: "XLN",
+                boosterUrl: "http://media.wizards.com/2017/images/magic/xln_prd_blk/plrplr-01-XLN_Boosters_en.jpg"
+            }, {
+                setCode: "KTK",
+                boosterUrl: "https://images-na.ssl-images-amazon.com/images/I/51yhe26mMEL._SX355_.jpg"
+            }, {
+                setCode: "BFZ",
+                boosterUrl: "https://i.ebayimg.com/images/g/DysAAOSwT6pV6R9x/s-l300.jpg"
+            }, {
+                setCode: "EMA",
+                boosterUrl: "https://cache.popcultcha.com.au/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/m/a/magic-gathering-eternal-masters-booster-display-box-large.1498521063.jpg"
+            }],
+            firstCol: [],
+            secondCol: [],
+            thirdCol: []
+        };
+
+        this.fillColumns = this.fillColumns.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(e) {
+        this.props.toggleSet(e.target.alt);
+        this.props.toggleMode();
+    }
+
+    fillColumns() {
+        for (var i = 0; i < this.state.sets.length; i++) {
+            if (i % 3 === 1) {
+                var c = this.state.firstCol;
+                c.push(this.state.sets[i]);
+                this.setState({ firstCol: c });
+            } else if (i % 3 === 2) {
+                var c = this.state.secondCol;
+                c.push(this.state.sets[i]);
+                this.setState({ secondCol: c });
+            } else {
+                var c = this.state.thirdCol;
+                c.push(this.state.sets[i]);
+                this.setState({ thirdCol: c });
+            }
+        }
+    }
+
+    componentWillMount() {
+
+        this.fillColumns();
+    }
+
+    render() {
+        return React.createElement(
+            "div",
+            { className: "row" },
+            React.createElement(
+                "div",
+                { className: "col-xs-4" },
+                this.state.firstCol.map(function (item, i) {
+                    return React.createElement("img", { key: i, alt: item.setCode, className: "booster", onClick: this.handleClick, src: item.boosterUrl });
+                }, this)
+            ),
+            React.createElement(
+                "div",
+                { className: "col-xs-4" },
+                this.state.secondCol.map(function (item, i) {
+                    return React.createElement("img", { key: i, alt: item.setCode, className: "booster", onClick: this.handleClick, src: item.boosterUrl });
+                }, this)
+            ),
+            React.createElement(
+                "div",
+                { className: "col-xs-4" },
+                this.state.thirdCol.map(function (item, i) {
+                    return React.createElement("img", { key: i, alt: item.setCode, className: "booster", onClick: this.handleClick, src: item.boosterUrl });
+                }, this)
+            )
+        );
+    }
+}
+
+module.exports = BoosterSelection;
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var React = __webpack_require__(0);
+
+class Pile extends React.Component {
+
+  render() {
+    return React.createElement(
+      "div",
+      { className: "pile" },
+      this.props.data.cards.map(function (item, i) {
+        return React.createElement("div", { key: i, className: "pile__card", style: { backgroundImage: "url(" + item.imageUrl + ")" } });
+      }),
+      this.props.data.cards.length > 0 && React.createElement(
+        "div",
+        { className: "pile__topbar" },
+        React.createElement(
+          "button",
+          null,
+          "Clear"
+        )
+      )
+    );
+  }
+}
+
+module.exports = Pile;
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var React = __webpack_require__(0);
+
+class Background extends React.Component {
+    render() {
+        return React.createElement("div", {
+            className: "fixed-backdrop",
+            style: { backgroundImage: "url(" + this.props.src + ")" } });
+    }
+}
+
+module.exports = Background;
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var React = __webpack_require__(0);
+
+class Stats extends React.Component {
+
+    render() {
+        return React.createElement(
+            "div",
+            { className: "stat-box" },
+            React.createElement(
+                "p",
+                null,
+                "Boosters Opened: ",
+                this.props.boostersOpened
+            ),
+            React.createElement(
+                "p",
+                null,
+                "Good Pulls: ",
+                this.props.goodPulls
+            ),
+            React.createElement(
+                "p",
+                null,
+                "Bad Pulls: ",
+                this.props.badPulls
+            )
+        );
+    }
+}
+
+module.exports = Stats;
 
 /***/ })
 /******/ ]);

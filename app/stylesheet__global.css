@@ -249,11 +249,23 @@ h1, h2, h3, h4, h5, h6, p {
 
   /* Loader */
 
+  .loader__float-div {
+    background-color: rgba(0,0,0,0.6);
+    height: 100vh;
+    width: 100vw;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+
   .loader__container {
-    height: 50%;
-    width: 50%;
+    height: 10em;
+    width: 10em;
     position: relative;
-    transform: translate(50%, 50%);
+    margin: auto auto;
   }
 
   .loader__mover {

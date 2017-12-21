@@ -4,6 +4,8 @@ var MainArea = require('./mainarea');
 var NextBooster = require('./nextbooster');
 var Loader = require('./loader.js');
 
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
+
 class Crack extends React.Component {
 
     constructor(props) {
@@ -113,18 +115,40 @@ class Crack extends React.Component {
             {this.state.booster.cards.slice(0).reverse().map(function(item, i) {
               return <img key={i} src={item.imageUrl} className="card__prep" onLoad={this.handleImageLoaded}/>;
             }.bind(this))}
+            <ReactCSSTransitionGroup
+            transitionName="backdrop"
+            transitionAppear={true}
+            transitionEnter={true}
+            transitionLeave={true}
+            transitionAppearTimeout={1000}
+            transitionLeaveTimeout={1000}
+            >
+            {!this.state.loaded ? 
             
-            {!this.state.loaded ? <Loader loadPercent={this.state.loadPercent}/> :
             
-            !this.state.lastCard ? <MainArea card={this.state.mainCard}
-              underCard={this.state.underCard}
-              next={this.nextCard}
-              goodClickHandler={this.props.goodClickHandler}
-              badClickHandler={this.props.badClickHandler}
-              boosterCount={this.state.boosterCount}
-              toggle={this.props.toggle}/> :
-            <NextBooster same={this.nextBooster} new={this.props.toggle}/>
+            <Loader key={this.state.boostersOpened} loadPercent={this.state.loadPercent}/>
+            
+            :
+            <ReactCSSTransitionGroup
+            transitionName="backdrop"
+            transitionAppear={true}
+            transitionEnter={true}
+            transitionLeave={true}
+            transitionAppearTimeout={1000}
+            transitionLeaveTimeout={1000}
+            >
+              {!this.state.lastCard ? <MainArea card={this.state.mainCard}
+                underCard={this.state.underCard}
+                next={this.nextCard}
+                goodClickHandler={this.props.goodClickHandler}
+                badClickHandler={this.props.badClickHandler}
+                boosterCount={this.state.boosterCount}
+                toggle={this.props.toggle}/> :
+              <NextBooster same={this.nextBooster} new={this.props.toggle}/>
+              }
+            </ReactCSSTransitionGroup>
             }
+            </ReactCSSTransitionGroup>
 
           }
           </div>
