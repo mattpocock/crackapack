@@ -57,7 +57,7 @@ class BoosterSelection extends React.Component {
 
             for (var i = 0; i < json.sets.length; i++) {
 
-                if (json.sets[i].type === "expansion" || json.sets[i].type === "core" || json.sets[i].type === "masters") {
+                if (json.sets[i].type === "expansion" || json.sets[i].type === "core" || json.sets[i].type === "masters" || json.sets[i].type === "reprint") {
                     
                     var t = new Date(json.sets[i].releaseDate);
                     json.sets[i].dateObj = t.getTime();

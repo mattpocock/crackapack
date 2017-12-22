@@ -6,7 +6,9 @@ class Loader extends React.Component {
         <div className="loader__float-div">
               <div className="loader__container">
                 <h1 className="loader__text">{this.props.loadPercent}%</h1>
-                <div className="loader__mover" style={{height: this.props.loadPercent + "%"}}>
+              </div>
+              <div className="loader__mover__container">
+              <div className="loader__mover" style={{height: Math.ceil((this.props.loadPercent/100)*28) + "em"}}>
                 <h1 className="loader__text">{this.props.loadPercent}%</h1>
                 </div>
               </div>

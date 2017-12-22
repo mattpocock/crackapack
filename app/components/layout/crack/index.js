@@ -17,12 +17,12 @@ class Crack extends React.Component {
         boostersOpened: 1,
         imagesLoaded: 0,
         loaded: false,
+        loadCard : "",
         loadPercent : 0,
         booster: {
           cards: []
         },
-        mainCard: {},
-        underCard: {},
+        mainCard: {}
         
       };
 
@@ -40,14 +40,12 @@ class Crack extends React.Component {
         if (c > 0) {
             this.setState({boosterCount: c});
             this.setState({
-                mainCard: this.state.booster.cards[c],
-                underCard: this.state.booster.cards[c-1]
+                mainCard: this.state.booster.cards[c]
             });
         } else if (c === 0) {
             this.setState({boosterCount: c});
             this.setState({
-                mainCard: this.state.booster.cards[c],
-                underCard: {}
+                mainCard: this.state.booster.cards[c]
             });
             
         } else if (c === -1) {
@@ -78,7 +76,7 @@ class Crack extends React.Component {
     }
 
     nextBooster() {
-      this.setState({mainCard: {}, underCard: {}, loaded: false});
+      this.setState({mainCard: {}, loaded: false});
       this.generateBooster(this.props.setCode);
       this.props.updateBoosters();
     }
@@ -93,8 +91,7 @@ class Crack extends React.Component {
             });
             this.setState({boosterCount: this.state.booster.cards.length - 1});
             this.setState({
-                mainCard: this.state.booster.cards[this.state.boosterCount],
-                underCard: this.state.booster.cards[this.state.boosterCount - 1]
+                mainCard: this.state.booster.cards[this.state.boosterCount]
             });
           }.bind(this));
 
@@ -132,7 +129,6 @@ class Crack extends React.Component {
             :
             
               !this.state.lastCard ? <MainArea card={this.state.mainCard}
-                underCard={this.state.underCard}
                 next={this.nextCard}
                 goodClickHandler={this.props.goodClickHandler}
                 badClickHandler={this.props.badClickHandler}

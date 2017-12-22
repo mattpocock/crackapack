@@ -1,5 +1,6 @@
 body {
   background-color: #333;
+  overflow-x: hidden;
 }
 
 .hide-overflow {
@@ -200,10 +201,13 @@ h1, h2, h3, h4, h5, h6, p {
 
   .fixed-backdrop {
     position: fixed;
-    width: 100vw;
-    height: 100vh;
+    min-width: 100vw;
+    max-width: 110vw;
     z-index: 0;
-    background-size: cover;
+    min-height: 100vh;
+    left: 0;
+    top: 0;
+    background-repeat: no-repeat;
   }
 
   /* Animations */
@@ -270,33 +274,49 @@ h1, h2, h3, h4, h5, h6, p {
   }
 
   .loader__container {
-    height: 10em;
-    width: 10em;
+    width: 20em;
+    height: 28em;
     position: absolute;
     margin: auto auto;
+    border-radius: 8px;
+    background-color: #333;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
-  }
-
-  .loader__mover {
-    width: 100%;
-    background-color: white;
-    overflow: hidden;
-  }
-
-  .loader__mover h1 {
-    color: black;
+    background-image: url("http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=426735&type=card");
+    background-size: cover;
+    filter: grayscale();
+    opacity: 0.5;
     z-index: 99;
   }
 
-  .loader__container h1 {
+  .loader__mover__container {
+    
+    width: 20em;
+    height: 28em;
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto auto;
+  }
+
+  .loader__mover {
+    width: 20em;
+    border-radius: 8px;
+    background-image: url("http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=426735&type=card");
+    filter: none();
+    background-size: cover;
+    overflow: hidden;
     z-index: 100;
   }
 
   .loader__text {
     position: absolute;
+    color: white;
     display: block;
     height: 10vh;
     line-height: 10vh;

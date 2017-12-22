@@ -18,7 +18,7 @@ class Layout extends React.Component {
         boostersOpened: 0,
         goodPulls: 0,
         badPulls: 0,
-        backgroundImage : "",
+        backgroundImage : undefined,
         defaultBackground : "https://magic.wizards.com/sites/mtg/files/RE8hXiBUA9.jpg",
         goodPile: {
             cards: []
@@ -101,9 +101,48 @@ class Layout extends React.Component {
             src = "https://noahbradley.com/wp-content/uploads/Noah-Bradley_mountain-khans-of-tarkir-2.jpg";
             break;
 
-            case "BFZ":
-            src ="http://media-dominaria.cursecdn.com/attachments/141/191/635722569063100993.jpg"
+            case "XLN":
+            src = "https://magic.wizards.com/sites/mtg/files/sYCla2unGd_0.jpg";
             break;
+
+            case "HOU":
+            src = "https://magic.wizards.com/sites/mtg/files/HOU_Header.jpg";
+            break;
+
+            case "AKH":
+            src = "https://magic.wizards.com/sites/mtg/files/images/featured/x5vcfbwc49_h3der.jpg";
+            break;
+
+            case "AER":
+            src = "https://magic.wizards.com/sites/mtg/files/images/featured/AER_Header_Preloader_0.jpg";
+            break;
+
+            case "KLD":
+            src = "http://www.thebagofloot.com/wp-content/uploads/2016/05/kaladesh.jpg"
+            break;
+
+            case "EMN" :
+            src = "https://magic.wizards.com/sites/mtg/files/images/featured/EMN_Header2_20.jpg";
+            break;
+
+            case "SOI" :
+            src = "https://magic.wizards.com/sites/mtg/files/images/featured/SIO_Header_New_Preloader.jpg";
+            break;
+
+            case "OGW" :
+            src = "https://magic.wizards.com/sites/mtg/files/images/featured/OGW_header_preloader.jpg"
+            break;
+
+            case "BFZ":
+            src ="http://media-dominaria.cursecdn.com/attachments/141/191/635722569063100993.jpg";
+            break;
+
+            case "ORI":
+            src = "https://i.pinimg.com/originals/9d/be/b7/9dbeb7b6ffb7668450f2e291978d903a.jpg";
+            break;
+
+
+
         }
 
           this.setState({backgroundImage : src});
@@ -120,7 +159,7 @@ class Layout extends React.Component {
             transitionAppearTimeout={1000}
             transitionLeaveTimeout={1000}
             >
-                {this.state.backgroundImage!= ""
+                {this.state.backgroundImage !== undefined
                     ?
                     <img key={this.state.setCode} className="fixed-backdrop" src={this.state.backgroundImage}></img>
                     :
