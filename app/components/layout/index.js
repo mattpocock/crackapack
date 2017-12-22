@@ -173,7 +173,7 @@ class Layout extends React.Component {
                     <Stats boostersOpened={this.state.boostersOpened} badPulls={this.state.badPulls} goodPulls={this.state.goodPulls}/>
                     <Pile data={this.state.badPile}/>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 scroll-y">
                     {this.state.chooseBooster ? <ChooseBooster toggleSet={this.toggleSetCode} toggleMode={this.toggleMode}/> :
                     <Crack
                     goodClickHandler={this.handleGoodClick}

@@ -11,7 +11,6 @@ class Crack extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        setCode: "",
         boosterCount: 0,
         lastCard: false,
         boostersOpened: 1,
@@ -50,6 +49,9 @@ class Crack extends React.Component {
             
         } else if (c === -1) {
           this.setState({lastCard: true});
+          this.setState({
+              mainCard: {}
+          });
         }
     }
 
@@ -108,7 +110,7 @@ class Crack extends React.Component {
           <div className="col-md-12 background light">
           <div className="row">
             <h1 className="align-center">Crack A Pack</h1>
-            <h4 className="align-center">Got any more of dem packs?</h4>
+            <h4 className="align-center">Guilt-Free Pack Cracking</h4>
           </div>
             {this.state.booster.cards.slice(0).reverse().map(function(item, i) {
               return <img key={i} src={item.imageUrl} className="card__prep" onLoad={this.handleImageLoaded}/>;
@@ -122,19 +124,33 @@ class Crack extends React.Component {
             transitionLeaveTimeout={1000}
             >
             {!this.state.loaded ? 
-            
-            
+
             <Loader key={this.state.boostersOpened} loadPercent={this.state.loadPercent}/>
             
             :
-            
-              !this.state.lastCard ? <MainArea card={this.state.mainCard}
-                next={this.nextCard}
-                goodClickHandler={this.props.goodClickHandler}
-                badClickHandler={this.props.badClickHandler}
-                boosterCount={this.state.boosterCount}
-                toggle={this.props.toggle}/> :
-              <NextBooster same={this.nextBooster} new={this.props.toggle}/>
+              <div>
+              
+              {!this.state.lastCard && 
+                  <MainArea card={this.state.mainCard}
+                    next={this.nextCard}
+                    goodClickHandler={this.props.goodClickHandler}
+                    badClickHandler={this.props.badClickHandler}
+                    boosterCount={this.state.boosterCount}
+                    toggle={this.props.toggle}/>
+              }
+                
+              {this.state.lastCard &&
+              <ReactCSSTransitionGroup
+              transitionName="backdrop"
+              transitionAppear={true}
+              transitionEnter={true}
+              transitionLeave={true}
+              transitionAppearTimeout={1000}
+              transitionLeaveTimeout={1000}
+              >
+              <NextBooster code={this.props.setCode} same={this.nextBooster} new={this.props.toggle}/>
+              </ReactCSSTransitionGroup>}
+              </div>
               
             }
             </ReactCSSTransitionGroup>

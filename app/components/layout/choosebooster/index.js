@@ -23,7 +23,8 @@ class ChooseBooster extends React.Component {
         <div className="col-md-12 background light">
               <div className="row">
                 <h1 className="align-center">Crack A Pack</h1>
-                <h4 className="align-center">Got any more of dem packs?</h4>
+                <h4 className="align-center">Guilt-Free Pack Cracking</h4>
+                <h1 style={{marginBottom: "20px", marginLeft: "20px"}}>Choose A Booster Pack</h1>
             </div>
             <BoosterSelection toggleSet={this.props.toggleSet} toggleMode={this.props.toggleMode}/>
         </div>

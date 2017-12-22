@@ -7,13 +7,17 @@ body {
   overflow: hidden;
 }
 
+.scroll-y {
+  overflow-y: auto;
+  height: 100vh;
+}
+
 h1, h2, h3, h4, h5, h6, p {
     color: white;
   }
   
   .background {
     min-height: 100vh;
-    
   }
   
   .align-center {
@@ -40,11 +44,28 @@ h1, h2, h3, h4, h5, h6, p {
   }
 
   .main-area__button {
-    height: 100%;
     width: 100%;
-    background-color: transparent;
+    background-color: #333;
     color: white;
-    border: 0;
+    position: absolute;
+    border: none;
+    top: 50%;
+    left: 0;
+    padding: 20px 0px 20px 0px;
+    transform: translateY(-50%);
+    text-transform: uppercase;
+    border-radius: 5px;
+    font-size: 10px;
+    transition: background-color 0.1s;
+  }
+
+  .main-area__button i {
+    font-size: 50px;
+    margin-bottom: 14px;
+  }
+
+  .main-area__button:hover {
+    background-color: #555;
   }
 
   .main-area__button:focus {
@@ -93,6 +114,11 @@ h1, h2, h3, h4, h5, h6, p {
       margin-bottom: 20px;
       background-color: #444;
       cursor: pointer;
+      transition: transform 0.1s;
+  }
+
+  .booster:hover {
+    transform: scale(1.05, 1.05);
   }
 
   /* Pile Stuff */
@@ -327,4 +353,32 @@ h1, h2, h3, h4, h5, h6, p {
     right: 0;
     bottom: 0;
     margin: auto;
+  }
+
+  /* Next Booster Buttons */
+
+  .next-booster__container {
+    transform: translateY(50%);
+    min-width: 0px;
+    text-align: center;
+  }
+
+  .next-booster__button {
+    margin:auto;
+    padding: 40px;
+    width: 100%;
+    border: none;
+    outline: none;
+    transition: transform 0.1s;
+    color: white;
+    font-size: 30px;
+    background-color: #333;
+  }
+
+  .next-booster__button:focus {
+    outline: none;
+  }
+
+  .next-booster__button:hover {
+    transform: scale(1.05,1.05);
   }
