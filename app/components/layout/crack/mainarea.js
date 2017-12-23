@@ -7,6 +7,10 @@ class MainArea extends React.Component {
 
     constructor(props) {
       super(props);
+
+      this.state = {
+        lastClick: "good"
+      }
       
       this.handleGoodClick = this.handleGoodClick.bind(this);
       this.handleBadClick = this.handleBadClick.bind(this);
@@ -14,11 +18,13 @@ class MainArea extends React.Component {
     
     handleBadClick() {
       this.props.badClickHandler(this.props.card);
+      this.setState({lastClick: "bad"});
       this.props.next();
     }
 
     handleGoodClick() {
       this.props.goodClickHandler(this.props.card);
+      this.setState({lastClick: "good"});
       this.props.next();
     }
     
@@ -33,7 +39,7 @@ class MainArea extends React.Component {
               <ReactCSSTransitionGroup
                 transitionEnter={true}
                 transitionLeave={true}
-                transitionName="fade"> 
+                transitionName={this.state.lastClick === "bad" ? "bad-card" : "good-card"}>
                   <Card underCard={this.props.underCard} card={this.props.card} key={this.props.boosterCount}/>
               </ReactCSSTransitionGroup>
             </div>
@@ -47,7 +53,7 @@ class MainArea extends React.Component {
                 transitionEnter={true}
                 transitionLeave={true}
                 transitionName="fade"> 
-          <div key={this.props.card.name} className="col-xs-6 col-md-12">
+          <div key={this.props.card.name} className="col-xs-6 col-md-12 main-area__descbox">
             <h3 className="fadeInLeft">{this.props.card.name} ({this.props.card.rarity})</h3>
             <h4 className="fadeInLeft">{this.props.card.type}</h4>
             <p className="fadeInLeft">{this.props.card.text}</p>

@@ -2,6 +2,7 @@ var React = require('react');
 
 var MainArea = require('./mainarea');
 var Loader = require('./loader.js');
+var Title = require('../title.js');
 
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
@@ -102,10 +103,7 @@ class Crack extends React.Component {
         <div className="container-fluid hide-overflow">
         <div className="row">
           <div className="col-md-12 background light">
-          <div className="row">
-            <h1 className="align-center">Crack A Pack</h1>
-            <h4 className="align-center">Guilt-Free Pack Cracking</h4>
-          </div>
+            <Title/>
             {this.state.booster.cards.slice(0).reverse().map(function(item, i) {
               return <img key={i} src={item.imageUrl} className="card__prep" onError={this.handleImageLoaded} onLoad={this.handleImageLoaded}/>;
             }.bind(this))}

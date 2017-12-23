@@ -40,7 +40,7 @@ class Layout extends React.Component {
         console.log(this.state.boostersOpened + " boosters opened!");
     }
 
-    toggleMode(good, bad) {
+    toggleMode() {
         this.state.chooseBooster ? this.setState({chooseBooster : false}) : this.setState({chooseBooster: true});
         this.updateBoosterCount();
     }
@@ -141,7 +141,13 @@ class Layout extends React.Component {
             src = "https://i.pinimg.com/originals/9d/be/b7/9dbeb7b6ffb7668450f2e291978d903a.jpg";
             break;
 
+            case "MM2":
+            src = "https://magic.wizards.com/sites/mtg/files/images/featured/MM2_Preloader2.jpg";
+            break;
 
+            case "DTK":
+            src = "http://www.progamers.com.au/wp-content/uploads/2014/07/DTK_preloader.jpg";
+            break;
 
         }
 
@@ -166,14 +172,28 @@ class Layout extends React.Component {
                     <img key={this.state.setCode} className="fixed-backdrop" src={this.state.defaultBackground}></img>
                     }
             </ReactCSSTransitionGroup>
-        <div className="container-fluid">
+
+        <div className="container-fluid fixed-position">
             <div className="row">
-                <div className="col-md-1 background hidden-sm hidden-xs"/>
+                <div className="col-md-1 hidden-sm hidden-xs"/>
                 <div className="col-md-2 background hidden-sm hidden-xs pileColumn">
                     <Stats boostersOpened={this.state.boostersOpened} badPulls={this.state.badPulls} goodPulls={this.state.goodPulls}/>
                     <Pile data={this.state.badPile}/>
                 </div>
-                <div className="col-md-6 scroll-y">
+                <div className="col-md-6"/>
+                <div className="col-md-2 background hidden-sm hidden-xs pileColumn">
+                    <Pile data={this.state.goodPile}/>
+                </div>
+                <div className="col-md-1 hidden-sm hidden-xs"/>
+            </div>
+        </div>
+
+        <div className="container-fluid">
+            <div className="row">
+                <div className="col-md-1 hidden-sm hidden-xs"/>
+                <div className="col-md-2 hidden-sm hidden-xs">
+                </div>
+                <div className="col-md-6">
                     {this.state.chooseBooster ? <ChooseBooster toggleSet={this.toggleSetCode} toggleMode={this.toggleMode}/> :
                     <Crack
                     goodClickHandler={this.handleGoodClick}
@@ -183,10 +203,9 @@ class Layout extends React.Component {
                     updateBoosters={this.updateBoosterCount}/>}
                 </div>
                 
-                <div className="col-md-2 background hidden-sm hidden-xs pileColumn">
-                    <Pile data={this.state.goodPile}/>
+                <div className="col-md-2 hidden-sm hidden-xs">
                 </div>
-                <div className="col-md-1 background hidden-sm hidden-xs"/>
+                <div className="col-md-1 hidden-sm hidden-xs"/>
             </div>
         </div>
         </div>

@@ -91,7 +91,6 @@ class BoosterSelection extends React.Component {
             <ReactCSSTransitionGroup
             transitionName="backdrop"
             transitionAppear={true}
-            transitionEnter={true}
             transitionLeave={true}
             transitionAppearTimeout={1000}
             transitionLeaveTimeout={1000}
