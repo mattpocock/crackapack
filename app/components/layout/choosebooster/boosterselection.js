@@ -26,6 +26,8 @@ class BoosterSelection extends React.Component {
 
         console.log(arr);
 
+        arr = arr.slice(0, 24);
+
         var ticker = 1;
 
         for(var i = 0; i < arr.length; i++) {
@@ -49,6 +51,7 @@ class BoosterSelection extends React.Component {
     }
 
     getSets() {
+
         fetch('https://api.magicthegathering.io/v1/sets/').then(function(response) {
             return response.json();
           }).then(function(json) {
@@ -90,7 +93,7 @@ class BoosterSelection extends React.Component {
                     <div key={i}
                         className="booster"
                         onClick={(e) => this.handleClick(e, item.code)}>
-                        <h2>{item.name}</h2>
+                        <img alt={item.name} src={"/app/components/layout/choosebooster/img/"+item.code.toLowerCase()+".jpg"} style={{width: "100%"}}/>
                     </div>);
                 }, this)}
                 </div>
@@ -100,8 +103,8 @@ class BoosterSelection extends React.Component {
                         <div key={i}
                             className="booster"
                             onClick={(e) => this.handleClick(e, item.code)}>
-                            <h2>{item.name}</h2>
-                        </div>);
+                            <img alt={item.name} src={"/app/components/layout/choosebooster/img/"+item.code.toLowerCase()+".jpg"} style={{width: "100%"}}/>
+                    </div>);
                 }, this)}
                 </div>
                 <div className="col-xs-4">
@@ -110,8 +113,8 @@ class BoosterSelection extends React.Component {
                         <div key={i}
                             className="booster"
                             onClick={(e) => this.handleClick(e, item.code)}>
-                            <h2>{item.name}</h2>
-                        </div>);
+                            <img alt={item.name} src={"/app/components/layout/choosebooster/img/"+item.code.toLowerCase()+".jpg"} style={{width: "100%"}}/>
+                    </div>);
                 }, this)}
                 </div>
             </div>

@@ -108,13 +108,14 @@ h1, h2, h3, h4, h5, h6, p {
   /* Boosters */
 
   .booster {
-      width: 100%;
-      padding: 20px;
+      width: 80%;
       text-align: center;
-      margin-bottom: 20px;
       background-color: #444;
       cursor: pointer;
+      margin:auto;
+      margin-bottom: 20px;
       transition: transform 0.1s;
+      box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.4);
   }
 
   .booster:hover {

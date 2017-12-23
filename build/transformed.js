@@ -1060,30 +1060,29 @@ class NextBooster extends React.Component {
     render() {
         return React.createElement(
             "div",
-            { className: "container-fluid" },
+            { className: "next-booster__container col-xs-12" },
             React.createElement(
                 "div",
-                { className: "row row-eq-height" },
-                React.createElement("div", { className: "col-xs-2 dark" }),
+                { className: "row" },
                 React.createElement(
                     "div",
-                    { className: "col-xs-4 darkish" },
+                    { className: "col-xs-6" },
                     React.createElement(
                         "button",
-                        { onClick: this.props.same },
-                        "Same again?"
+                        { className: "next-booster__button", onClick: this.props.same },
+                        "More ",
+                        this.props.code
                     )
                 ),
                 React.createElement(
                     "div",
-                    { className: "col-xs-4 darkish" },
+                    { className: "col-xs-6" },
                     React.createElement(
                         "button",
-                        { onClick: this.props.new },
-                        "Different Booster?"
+                        { className: "next-booster__button", onClick: this.props.new },
+                        "Choose Set"
                     )
-                ),
-                React.createElement("div", { className: "col-xs-2 dark" })
+                )
             )
         );
     }
@@ -18451,7 +18450,7 @@ class Layout extends React.Component {
             boostersOpened: 0,
             goodPulls: 0,
             badPulls: 0,
-            backgroundImage: "",
+            backgroundImage: undefined,
             defaultBackground: "https://magic.wizards.com/sites/mtg/files/RE8hXiBUA9.jpg",
             goodPile: {
                 cards: []
@@ -18534,13 +18533,46 @@ class Layout extends React.Component {
                 src = "https://noahbradley.com/wp-content/uploads/Noah-Bradley_mountain-khans-of-tarkir-2.jpg";
                 break;
 
+            case "XLN":
+                src = "https://magic.wizards.com/sites/mtg/files/sYCla2unGd_0.jpg";
+                break;
+
+            case "HOU":
+                src = "https://magic.wizards.com/sites/mtg/files/HOU_Header.jpg";
+                break;
+
+            case "AKH":
+                src = "https://magic.wizards.com/sites/mtg/files/images/featured/x5vcfbwc49_h3der.jpg";
+                break;
+
+            case "AER":
+                src = "https://magic.wizards.com/sites/mtg/files/images/featured/AER_Header_Preloader_0.jpg";
+                break;
+
+            case "KLD":
+                src = "http://www.thebagofloot.com/wp-content/uploads/2016/05/kaladesh.jpg";
+                break;
+
+            case "EMN":
+                src = "https://magic.wizards.com/sites/mtg/files/images/featured/EMN_Header2_20.jpg";
+                break;
+
+            case "SOI":
+                src = "https://magic.wizards.com/sites/mtg/files/images/featured/SIO_Header_New_Preloader.jpg";
+                break;
+
+            case "OGW":
+                src = "https://magic.wizards.com/sites/mtg/files/images/featured/OGW_header_preloader.jpg";
+                break;
+
             case "BFZ":
                 src = "http://media-dominaria.cursecdn.com/attachments/141/191/635722569063100993.jpg";
                 break;
 
-            case "XLN":
-                src = "https://magic.wizards.com/sites/mtg/files/sYCla2unGd_0.jpg";
+            case "ORI":
+                src = "https://i.pinimg.com/originals/9d/be/b7/9dbeb7b6ffb7668450f2e291978d903a.jpg";
                 break;
+
         }
 
         this.setState({ backgroundImage: src });
@@ -18560,7 +18592,7 @@ class Layout extends React.Component {
                     transitionAppearTimeout: 1000,
                     transitionLeaveTimeout: 1000
                 },
-                this.state.backgroundImage != "" ? React.createElement('img', { key: this.state.setCode, className: 'fixed-backdrop', src: this.state.backgroundImage }) : React.createElement('img', { key: this.state.setCode, className: 'fixed-backdrop', src: this.state.defaultBackground })
+                this.state.backgroundImage !== undefined ? React.createElement('img', { key: this.state.setCode, className: 'fixed-backdrop', src: this.state.backgroundImage }) : React.createElement('img', { key: this.state.setCode, className: 'fixed-backdrop', src: this.state.defaultBackground })
             ),
             React.createElement(
                 'div',
@@ -18577,7 +18609,7 @@ class Layout extends React.Component {
                     ),
                     React.createElement(
                         'div',
-                        { className: 'col-md-6' },
+                        { className: 'col-md-6 scroll-y' },
                         this.state.chooseBooster ? React.createElement(ChooseBooster, { toggleSet: this.toggleSetCode, toggleMode: this.toggleMode }) : React.createElement(Crack, {
                             goodClickHandler: this.handleGoodClick,
                             badClickHandler: this.handleBadClick,
@@ -18616,18 +18648,17 @@ class Crack extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      setCode: "",
       boosterCount: 0,
       lastCard: false,
       boostersOpened: 1,
       imagesLoaded: 0,
       loaded: false,
+      loadCard: "",
       loadPercent: 0,
       booster: {
         cards: []
       },
-      mainCard: {},
-      underCard: {}
+      mainCard: {}
 
     };
 
@@ -18643,17 +18674,18 @@ class Crack extends React.Component {
     if (c > 0) {
       this.setState({ boosterCount: c });
       this.setState({
-        mainCard: this.state.booster.cards[c],
-        underCard: this.state.booster.cards[c - 1]
+        mainCard: this.state.booster.cards[c]
       });
     } else if (c === 0) {
       this.setState({ boosterCount: c });
       this.setState({
-        mainCard: this.state.booster.cards[c],
-        underCard: {}
+        mainCard: this.state.booster.cards[c]
       });
     } else if (c === -1) {
       this.setState({ lastCard: true });
+      this.setState({
+        mainCard: {}
+      });
     }
   }
 
@@ -18679,7 +18711,7 @@ class Crack extends React.Component {
   }
 
   nextBooster() {
-    this.setState({ mainCard: {}, underCard: {}, loaded: false });
+    this.setState({ mainCard: {}, loaded: false });
     this.generateBooster(this.props.setCode);
     this.props.updateBoosters();
   }
@@ -18694,8 +18726,7 @@ class Crack extends React.Component {
       });
       this.setState({ boosterCount: this.state.booster.cards.length - 1 });
       this.setState({
-        mainCard: this.state.booster.cards[this.state.boosterCount],
-        underCard: this.state.booster.cards[this.state.boosterCount - 1]
+        mainCard: this.state.booster.cards[this.state.boosterCount]
       });
     }.bind(this));
   }
@@ -18725,11 +18756,11 @@ class Crack extends React.Component {
             React.createElement(
               'h4',
               { className: 'align-center' },
-              'Got any more of dem packs?'
+              'Guilt-Free Pack Cracking'
             )
           ),
           this.state.booster.cards.slice(0).reverse().map(function (item, i) {
-            return React.createElement('img', { key: i, src: item.imageUrl, className: 'card__prep', onLoad: this.handleImageLoaded });
+            return React.createElement('img', { key: i, src: item.imageUrl, className: 'card__prep', onError: this.handleImageLoaded, onLoad: this.handleImageLoaded });
           }.bind(this)),
           React.createElement(
             ReactCSSTransitionGroup,
@@ -18741,13 +18772,28 @@ class Crack extends React.Component {
               transitionAppearTimeout: 1000,
               transitionLeaveTimeout: 1000
             },
-            !this.state.loaded ? React.createElement(Loader, { key: this.state.boostersOpened, loadPercent: this.state.loadPercent }) : !this.state.lastCard ? React.createElement(MainArea, { card: this.state.mainCard,
-              underCard: this.state.underCard,
-              next: this.nextCard,
-              goodClickHandler: this.props.goodClickHandler,
-              badClickHandler: this.props.badClickHandler,
-              boosterCount: this.state.boosterCount,
-              toggle: this.props.toggle }) : React.createElement(NextBooster, { same: this.nextBooster, 'new': this.props.toggle })
+            !this.state.loaded ? React.createElement(Loader, { key: this.state.boostersOpened, loadPercent: this.state.loadPercent }) : React.createElement(
+              'div',
+              null,
+              !this.state.lastCard && React.createElement(MainArea, { card: this.state.mainCard,
+                next: this.nextCard,
+                goodClickHandler: this.props.goodClickHandler,
+                badClickHandler: this.props.badClickHandler,
+                boosterCount: this.state.boosterCount,
+                toggle: this.props.toggle }),
+              this.state.lastCard && React.createElement(
+                ReactCSSTransitionGroup,
+                {
+                  transitionName: 'backdrop',
+                  transitionAppear: true,
+                  transitionEnter: true,
+                  transitionLeave: true,
+                  transitionAppearTimeout: 1000,
+                  transitionLeaveTimeout: 1000
+                },
+                React.createElement(NextBooster, { code: this.props.setCode, same: this.nextBooster, 'new': this.props.toggle })
+              )
+            )
           )
         )
       )
@@ -18789,7 +18835,8 @@ class MainArea extends React.Component {
   render() {
     return React.createElement(
       'div',
-      { className: 'container-fluid' },
+      { className: 'container-fluid hide-overflow' },
+      '}>',
       React.createElement(
         'div',
         { className: 'row row-eq-height' },
@@ -18799,7 +18846,9 @@ class MainArea extends React.Component {
           React.createElement(
             'button',
             { className: 'main-area__button', onClick: this.handleBadClick },
-            'Shit Pile'
+            React.createElement('i', { 'class': 'fa fa-thumbs-down', 'aria-hidden': 'true' }),
+            React.createElement('br', null),
+            'Discard'
           )
         ),
         React.createElement(
@@ -18820,7 +18869,9 @@ class MainArea extends React.Component {
           React.createElement(
             'button',
             { className: 'main-area__button', onClick: this.handleGoodClick },
-            'Good Pile'
+            React.createElement('i', { 'class': 'fa fa-thumbs-up', 'aria-hidden': 'true' }),
+            React.createElement('br', null),
+            'Save'
           )
         )
       ),
@@ -20535,32 +20586,36 @@ function getTransitionProperties() {
 var React = __webpack_require__(0);
 
 class Loader extends React.Component {
-    render() {
-        return React.createElement(
-            "div",
-            { className: "loader__float-div" },
-            React.createElement(
-                "div",
-                { className: "loader__container" },
-                React.createElement(
-                    "h1",
-                    { className: "loader__text" },
-                    this.props.loadPercent,
-                    "%"
-                ),
-                React.createElement(
-                    "div",
-                    { className: "loader__mover", style: { height: this.props.loadPercent + "%" } },
-                    React.createElement(
-                        "h1",
-                        { className: "loader__text" },
-                        this.props.loadPercent,
-                        "%"
-                    )
-                )
-            )
-        );
-    }
+  render() {
+    return React.createElement(
+      "div",
+      { className: "loader__float-div" },
+      React.createElement(
+        "div",
+        { className: "loader__container" },
+        React.createElement(
+          "h1",
+          { className: "loader__text" },
+          this.props.loadPercent,
+          "%"
+        )
+      ),
+      React.createElement(
+        "div",
+        { className: "loader__mover__container" },
+        React.createElement(
+          "div",
+          { className: "loader__mover", style: { height: Math.ceil(this.props.loadPercent / 100 * 28) + "em" } },
+          React.createElement(
+            "h1",
+            { className: "loader__text" },
+            this.props.loadPercent,
+            "%"
+          )
+        )
+      )
+    );
+  }
 }
 
 module.exports = Loader;
@@ -20600,7 +20655,12 @@ class ChooseBooster extends React.Component {
                 React.createElement(
                     'h4',
                     { className: 'align-center' },
-                    'Got any more of dem packs?'
+                    'Guilt-Free Pack Cracking'
+                ),
+                React.createElement(
+                    'h1',
+                    { style: { marginBottom: "20px", marginLeft: "20px" } },
+                    'Choose A Booster Pack'
                 )
             ),
             React.createElement(BoosterSelection, { toggleSet: this.props.toggleSet, toggleMode: this.props.toggleMode })
@@ -20642,6 +20702,8 @@ class BoosterSelection extends React.Component {
 
         console.log(arr);
 
+        arr = arr.slice(0, 24);
+
         var ticker = 1;
 
         for (var i = 0; i < arr.length; i++) {
@@ -20665,6 +20727,7 @@ class BoosterSelection extends React.Component {
     }
 
     getSets() {
+
         fetch('https://api.magicthegathering.io/v1/sets/').then(function (response) {
             return response.json();
         }).then(function (json) {
@@ -20674,6 +20737,10 @@ class BoosterSelection extends React.Component {
             for (var i = 0; i < json.sets.length; i++) {
 
                 if (json.sets[i].type === "expansion" || json.sets[i].type === "core" || json.sets[i].type === "masters" || json.sets[i].type === "reprint") {
+
+                    if (json.sets[i].code === "AER") {
+                        continue;
+                    }
 
                     var t = new Date(json.sets[i].releaseDate);
                     json.sets[i].dateObj = t.getTime();
@@ -20706,11 +20773,7 @@ class BoosterSelection extends React.Component {
                         { key: i,
                             className: 'booster',
                             onClick: e => this.handleClick(e, item.code) },
-                        React.createElement(
-                            'h2',
-                            null,
-                            item.name
-                        )
+                        React.createElement('img', { alt: item.name, src: "/app/components/layout/choosebooster/img/" + item.code.toLowerCase() + ".jpg", style: { width: "100%" } })
                     );
                 }, this)
             ),
@@ -20723,11 +20786,7 @@ class BoosterSelection extends React.Component {
                         { key: i,
                             className: 'booster',
                             onClick: e => this.handleClick(e, item.code) },
-                        React.createElement(
-                            'h2',
-                            null,
-                            item.name
-                        )
+                        React.createElement('img', { alt: item.name, src: "/app/components/layout/choosebooster/img/" + item.code.toLowerCase() + ".jpg", style: { width: "100%" } })
                     );
                 }, this)
             ),
@@ -20740,11 +20799,7 @@ class BoosterSelection extends React.Component {
                         { key: i,
                             className: 'booster',
                             onClick: e => this.handleClick(e, item.code) },
-                        React.createElement(
-                            'h2',
-                            null,
-                            item.name
-                        )
+                        React.createElement('img', { alt: item.name, src: "/app/components/layout/choosebooster/img/" + item.code.toLowerCase() + ".jpg", style: { width: "100%" } })
                     );
                 }, this)
             )
@@ -20768,16 +20823,7 @@ class Pile extends React.Component {
       { className: "pile" },
       this.props.data.cards.map(function (item, i) {
         return React.createElement("div", { key: i, className: "pile__card", style: { backgroundImage: "url(" + item.imageUrl + ")" } });
-      }),
-      this.props.data.cards.length > 0 && React.createElement(
-        "div",
-        { className: "pile__topbar" },
-        React.createElement(
-          "button",
-          null,
-          "Clear"
-        )
-      )
+      })
     );
   }
 }
@@ -20809,7 +20855,7 @@ var React = __webpack_require__(0);
 class Stats extends React.Component {
 
     render() {
-        return React.createElement(
+        return this.props.boostersOpened > 0 && React.createElement(
             "div",
             { className: "stat-box" },
             React.createElement(
@@ -20821,13 +20867,13 @@ class Stats extends React.Component {
             React.createElement(
                 "p",
                 null,
-                "Good Pulls: ",
+                "Saved: ",
                 this.props.goodPulls
             ),
             React.createElement(
                 "p",
                 null,
-                "Bad Pulls: ",
+                "Discarded: ",
                 this.props.badPulls
             )
         );

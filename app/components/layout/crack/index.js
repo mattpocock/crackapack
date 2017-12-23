@@ -113,7 +113,7 @@ class Crack extends React.Component {
             <h4 className="align-center">Guilt-Free Pack Cracking</h4>
           </div>
             {this.state.booster.cards.slice(0).reverse().map(function(item, i) {
-              return <img key={i} src={item.imageUrl} className="card__prep" onLoad={this.handleImageLoaded}/>;
+              return <img key={i} src={item.imageUrl} className="card__prep" onError={this.handleImageLoaded} onLoad={this.handleImageLoaded}/>;
             }.bind(this))}
             <ReactCSSTransitionGroup
             transitionName="backdrop"

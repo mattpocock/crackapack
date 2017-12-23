@@ -25,10 +25,10 @@ class MainArea extends React.Component {
     
     render() {
       return (
-        <div className="container-fluid" style={{overflowY: "hidden"}}>
+        <div className="container-fluid hide-overflow">}>
           <div className="row row-eq-height">
             <div className="col-xs-2 main-area__button__container">
-              <button className="main-area__button" onClick={this.handleBadClick}><i class="fa fa-thumbs-down" aria-hidden="true"></i><br/>Discard</button>
+              <button className="main-area__button" onClick={this.handleBadClick}><i className="fa fa-thumbs-down" aria-hidden="true"></i><br/>Discard</button>
             </div>
             <div className="col-xs-8 card__container">
               <ReactCSSTransitionGroup
@@ -39,7 +39,7 @@ class MainArea extends React.Component {
               </ReactCSSTransitionGroup>
             </div>
         <div className="col-xs-2 main-area__button__container">
-          <button className="main-area__button" onClick={this.handleGoodClick}><i class="fa fa-thumbs-up" aria-hidden="true"></i><br/>Save</button>
+          <button className="main-area__button" onClick={this.handleGoodClick}><i className="fa fa-thumbs-up" aria-hidden="true"></i><br/>Save</button>
         </div>
       </div>
         <div className="row">
