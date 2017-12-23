@@ -71,6 +71,10 @@ h1, h2, h3, h4, h5, h6, p {
     margin: 0;
   }
 
+  .title hr {
+    margin: 0px 0px 20px 0px;
+  }
+
   /* Main Area */
 
   .main-area__button__container {
@@ -249,7 +253,6 @@ h1, h2, h3, h4, h5, h6, p {
   }
   
   .fadeInLeft {
-    animation-name: fadeInLeft;
     animation-duration: 0.5s;
   }
 
@@ -282,6 +285,7 @@ h1, h2, h3, h4, h5, h6, p {
 
   .fade-enter {
     opacity: 0;
+    position: absolute;
   }
   
   .fade-enter.fade-enter-active {
@@ -290,16 +294,13 @@ h1, h2, h3, h4, h5, h6, p {
   }
   
   .fade-leave {
-    transform: translateY(0);
     opacity: 1;
     position: absolute;
   }
   
   .fade-leave.fade-leave-active {
-    transform: translateY(100%);
     opacity: 0;
-    position: absolute;
-    transition: transform 0.5s, opacity 0.5s ease-in;
+    transition: opacity 0.5s ease-in;
   }
 
   .bad-card-enter {
