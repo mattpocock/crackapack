@@ -1,7 +1,6 @@
 var React = require('react');
 
 var MainArea = require('./mainarea');
-var NextBooster = require('./nextbooster');
 var Loader = require('./loader.js');
 
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
@@ -12,7 +11,6 @@ class Crack extends React.Component {
       super(props);
       this.state = {
         boosterCount: 0,
-        lastCard: false,
         boostersOpened: 1,
         imagesLoaded: 0,
         loaded: false,
@@ -48,10 +46,7 @@ class Crack extends React.Component {
             });
             
         } else if (c === -1) {
-          this.setState({lastCard: true});
-          this.setState({
-              mainCard: {}
-          });
+          this.props.toggle();
         }
     }
 
@@ -88,8 +83,7 @@ class Crack extends React.Component {
         fetch('https://api.magicthegathering.io/v1/sets/'+set+'/booster').then(function(response) {
             return response.json();
           }).then(function(json) {
-            this.setState({booster: json,
-                          lastCard: false
+            this.setState({booster: json
             });
             this.setState({boosterCount: this.state.booster.cards.length - 1});
             this.setState({
@@ -123,35 +117,13 @@ class Crack extends React.Component {
             transitionAppearTimeout={1000}
             transitionLeaveTimeout={1000}
             >
-            {!this.state.loaded ? 
-
-            <Loader key={this.state.boostersOpened} loadPercent={this.state.loadPercent}/>
-            
-            :
-              <div>
-              
-              {!this.state.lastCard && 
-                  <MainArea card={this.state.mainCard}
-                    next={this.nextCard}
-                    goodClickHandler={this.props.goodClickHandler}
-                    badClickHandler={this.props.badClickHandler}
-                    boosterCount={this.state.boosterCount}
-                    toggle={this.props.toggle}/>
-              }
-                
-              {this.state.lastCard &&
-              <ReactCSSTransitionGroup
-              transitionName="backdrop"
-              transitionAppear={true}
-              transitionEnter={true}
-              transitionLeave={true}
-              transitionAppearTimeout={1000}
-              transitionLeaveTimeout={1000}
-              >
-              <NextBooster code={this.props.setCode} same={this.nextBooster} new={this.props.toggle}/>
-              </ReactCSSTransitionGroup>}
-              </div>
-              
+            {!this.state.loaded ? <Loader key={this.state.boostersOpened} loadPercent={this.state.loadPercent}/>
+            : <MainArea card={this.state.mainCard}
+              next={this.nextCard}
+              goodClickHandler={this.props.goodClickHandler}
+              badClickHandler={this.props.badClickHandler}
+              boosterCount={this.state.boosterCount}
+              toggle={this.props.toggle}/>
             }
             </ReactCSSTransitionGroup>
           </div>

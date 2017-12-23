@@ -1,6 +1,5 @@
 var React = require('react');
 
-var NextBooster = require('./nextbooster.js');
 var Card = require('./card.js');
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 

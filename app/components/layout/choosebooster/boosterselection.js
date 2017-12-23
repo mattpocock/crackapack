@@ -1,5 +1,7 @@
 var React = require('react');
 
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
+
 class BoosterSelection extends React.Component {
 
     constructor(props) {
@@ -86,38 +88,48 @@ class BoosterSelection extends React.Component {
 
     render() {
         return (
-            <div className="row">
-                <div className="col-xs-4">
-                {this.state.firstCol.map(function(item, i) {
-                    return (
-                    <div key={i}
-                        className="booster"
-                        onClick={(e) => this.handleClick(e, item.code)}>
-                        <img alt={item.name} src={"/app/components/layout/choosebooster/img/"+item.code.toLowerCase()+".jpg"} style={{width: "100%"}}/>
-                    </div>);
-                }, this)}
-                </div>
-                <div className="col-xs-4">
-                {this.state.secondCol.map(function(item, i) {
-                    return (
+            <ReactCSSTransitionGroup
+            transitionName="backdrop"
+            transitionAppear={true}
+            transitionEnter={true}
+            transitionLeave={true}
+            transitionAppearTimeout={1000}
+            transitionLeaveTimeout={1000}
+            >
+                <div className="row">
+                    <div className="col-xs-4">
+                    
+                    {this.state.firstCol.map(function(item, i) {
+                        return (
                         <div key={i}
                             className="booster"
                             onClick={(e) => this.handleClick(e, item.code)}>
                             <img alt={item.name} src={"/app/components/layout/choosebooster/img/"+item.code.toLowerCase()+".jpg"} style={{width: "100%"}}/>
-                    </div>);
-                }, this)}
+                        </div>);
+                    }, this)}
+                    </div>
+                    <div className="col-xs-4">
+                    {this.state.secondCol.map(function(item, i) {
+                        return (
+                            <div key={i}
+                                className="booster"
+                                onClick={(e) => this.handleClick(e, item.code)}>
+                                <img alt={item.name} src={"/app/components/layout/choosebooster/img/"+item.code.toLowerCase()+".jpg"} style={{width: "100%"}}/>
+                        </div>);
+                    }, this)}
+                    </div>
+                    <div className="col-xs-4">
+                    {this.state.thirdCol.map(function(item, i) {
+                        return (
+                            <div key={i}
+                                className="booster"
+                                onClick={(e) => this.handleClick(e, item.code)}>
+                                <img alt={item.name} src={"/app/components/layout/choosebooster/img/"+item.code.toLowerCase()+".jpg"} style={{width: "100%"}}/>
+                        </div>);
+                    }, this)}
+                    </div>
                 </div>
-                <div className="col-xs-4">
-                {this.state.thirdCol.map(function(item, i) {
-                    return (
-                        <div key={i}
-                            className="booster"
-                            onClick={(e) => this.handleClick(e, item.code)}>
-                            <img alt={item.name} src={"/app/components/layout/choosebooster/img/"+item.code.toLowerCase()+".jpg"} style={{width: "100%"}}/>
-                    </div>);
-                }, this)}
-                </div>
-            </div>
+            </ReactCSSTransitionGroup>
         )
     }
 }
