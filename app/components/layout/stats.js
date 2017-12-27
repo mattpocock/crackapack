@@ -1,4 +1,5 @@
 var React = require('react');
+var PropTypes = require('prop-types');
 
 class Stats extends React.Component {
 
@@ -13,6 +14,12 @@ class Stats extends React.Component {
             
         );
     }
+}
+
+Stats.propTypes = {
+    boostersOpened: PropTypes.int,
+    goodPulls: PropTypes.int,
+    badPulls: PropTypes.int
 }
 
 module.exports = Stats;

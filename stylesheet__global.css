@@ -50,29 +50,56 @@ h1, h2, h3, h4, h5, h6, p {
     margin-right: 30px;
   }
 
-  .title h1 {
+  .title h1, .title__mobile h1 {
     font-family: 'Bungee', cursive;
-    font-size: 50px;
-    line-height: 60px;
+    font-size: 4em;
+    line-height: 1.2em;
     margin-bottom: 0;
   }
 
-  .title h2 {
+  .title h2, .title__mobile h2 {
     font-family: 'Bungee', cursive;
-    font-size: 22px;
-    line-height: 60px;
-    margin: 0;
-    margin-top: 15px;
-  }
-
-  .title h4 {
-    font-size: 22px;
-    line-height: 30px;
+    font-size: 2em;
+    line-height: 2.2em;
     margin: 0;
   }
 
-  .title hr {
-    margin: 0px 0px 20px 0px;
+  .title h4, .title__mobile h4 {
+    font-size: 1.4em;
+    line-height: 1.2em;
+    margin: 0;
+  }
+
+  .title hr, .title__mobile hr {
+    margin: 0px 0px 0px 0px;
+  }
+
+  .title__choose-booster {
+    margin: 0.8em 0px 1.4em 0px;
+  }
+
+  .title__mobile {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  .title__mobile h1 {
+    font-size: 2em;
+    line-height: 1em;
+  }
+
+  .title__mobile h4 {
+    font-size: 1em;
+    line-height: 2em;
+  }
+
+  .title__mobile h2 {
+    line-height: 2em;
+    font-size: 1.4em;
+  }
+
+  .title__mobile__choose-booster {
+    margin: 0.5em 0px 1em 0px;
   }
 
   /* Main Area */
@@ -94,15 +121,18 @@ h1, h2, h3, h4, h5, h6, p {
     transform: translateY(-50%);
     text-transform: uppercase;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 1em;
     transition: background-color 0.1s;
     font-family: 'Bungee', cursive;
     z-index: 1000;
   }
 
   .main-area__button i {
-    font-size: 50px;
-    margin-bottom: 14px;
+    font-size: 2.4em;
+  }
+
+  .main-area__button__txt {
+    margin-top: 14px;
   }
 
   .main-area__button:hover {
@@ -148,6 +178,7 @@ h1, h2, h3, h4, h5, h6, p {
 
   .main-area__descbox {
     position: relative;
+    font-size: 0.8em;
   }
 
   /* Boosters */

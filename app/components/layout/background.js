@@ -1,4 +1,5 @@
 var React = require('react');
+var PropTypes = require('prop-types');
 
 class Background extends React.Component {
     render() {
@@ -9,6 +10,10 @@ class Background extends React.Component {
 
         );
     }
+}
+
+Background.propTypes = {
+    src: PropTypes.string
 }
 
 module.exports = Background;

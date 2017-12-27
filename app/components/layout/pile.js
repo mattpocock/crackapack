@@ -1,4 +1,5 @@
 var React = require('react');
+var PropTypes = require('prop-types');
 
 class Pile extends React.Component {
   
@@ -14,5 +15,9 @@ class Pile extends React.Component {
       )
     }
   }
+
+Pile.propTypes = {
+  data: PropTypes.object
+}
 
 module.exports = Pile;
