@@ -7,7 +7,6 @@ class BoosterSelection extends React.Component {
 
     constructor(props) {
         super(props);
-
         this.state = {
             sets : [],
             firstCol: [],
@@ -20,11 +19,49 @@ class BoosterSelection extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
+    // Handles selecting a booster
     handleClick(e, code) {
         this.props.toggleSet(code);
         this.props.toggleMode();
     }
 
+    // Fetches a full set list from magicthegathering.io
+    getSets() {
+
+        fetch('https://api.magicthegathering.io/v1/sets/').then(function(response) {
+
+            return response.json();
+
+        }).then(function(json) {
+
+            var arr = [];
+            for (var i = 0; i < json.sets.length; i++) {
+
+                // Only renders 'expansion', 'core', 'masters' and 'reprint' sets
+                if (json.sets[i].type === "expansion" || json.sets[i].type === "core" ||
+                        json.sets[i].type === "masters" || json.sets[i].type === "reprint") {
+                    
+                    // Skips out Aether Revolt because of an upstream issue
+                    if (json.sets[i].code === "AER") {continue;}
+
+                    // Adds a dateObj to sort the sets
+                    var t = new Date(json.sets[i].releaseDate);
+                    json.sets[i].dateObj = t.getTime();
+                    arr.push(json.sets[i]);
+                }
+
+            }
+
+            // Sorts the sets by chronological order
+            arr.sort(function (a, b) {
+                return b.dateObj - a.dateObj;
+              });
+            this.fillColumns(arr);
+
+        }.bind(this))}
+    
+    // Takes an array of set data, and fills the three columns
+    // to be displayed on the view
     fillColumns(arr) {
 
         arr = arr.slice(0, 24);
@@ -56,41 +93,8 @@ class BoosterSelection extends React.Component {
         }
     }
 
-    getSets() {
-
-        fetch('https://api.magicthegathering.io/v1/sets/').then(function(response) {
-
-            return response.json();
-
-        }).then(function(json) {
-
-            var arr = [];
-
-            for (var i = 0; i < json.sets.length; i++) {
-
-                if (json.sets[i].type === "expansion" || json.sets[i].type === "core" || json.sets[i].type === "masters" || json.sets[i].type === "reprint") {
-                    
-                    if (json.sets[i].code === "AER") {continue;}
-
-                    var t = new Date(json.sets[i].releaseDate);
-                    json.sets[i].dateObj = t.getTime();
-                    arr.push(json.sets[i]);
-                }
-
-            }
-
-            arr.sort(function (a, b) {
-                return b.dateObj - a.dateObj;
-              });
-
-            this.fillColumns(arr);
-
-        }.bind(this))}
-
     componentWillMount() {
-
         this.getSets();
-
     }
 
     render() {

@@ -1,3 +1,5 @@
+/* ========== Presets ========== */
+
 body {
   background-color: #333;
   overflow-x: hidden;
@@ -19,487 +21,487 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, p {
-    color: white;
-    font-family: 'Alegreya Sans', sans-serif;
-  }
-  
-  .background {
-    min-height: 100vh;
-  }
-  
-  .align-center {
+  color: white;
+  font-family: 'Alegreya Sans', sans-serif;
+}
+
+.background {
+  min-height: 100vh;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.dark {
+  background-color: rgba(0,0,0,0.9);
+}
+
+.darkish {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.light {
+  background-color: rgba(0,0,0,0.6);
+}
+
+/* ========== Title ========== */
+
+.title {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.title h1, .title__mobile h1 {
+  font-family: 'Bungee', cursive;
+  font-size: 4em;
+  line-height: 1.2em;
+  margin-bottom: 0;
+}
+
+.title h2, .title__mobile h2 {
+  font-family: 'Bungee', cursive;
+  font-size: 2em;
+  line-height: 2.2em;
+  margin: 0;
+}
+
+.title h4, .title__mobile h4 {
+  font-size: 1.4em;
+  line-height: 1.2em;
+  margin: 0;
+}
+
+.title hr, .title__mobile hr {
+  margin: 0px 0px 0px 0px;
+}
+
+.title__choose-booster {
+  margin: 0.8em 0px 1.4em 0px;
+}
+
+.title__mobile {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.title__mobile h1 {
+  font-size: 2em;
+  line-height: 1em;
+}
+
+.title__mobile h4 {
+  font-size: 1em;
+  line-height: 2em;
+}
+
+.title__mobile h2 {
+  line-height: 2em;
+  font-size: 1.4em;
+}
+
+.title__mobile__choose-booster {
+  margin: 0.5em 0px 1em 0px;
+}
+
+/* ========== Main Area ========== */
+
+.main-area__button__container {
+  height: 50vh;
+  position: relative;
+}
+
+.main-area__button {
+  width: 100%;
+  background-color: #333;
+  color: white;
+  position: absolute;
+  border: none;
+  top: 50%;
+  left: 0;
+  padding: 20px 0px 20px 0px;
+  transform: translateY(-50%);
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: background-color 0.1s;
+  font-family: 'Bungee', cursive;
+  z-index: 1000;
+}
+
+.main-area__button i {
+  font-size: 2.4em;
+}
+
+.main-area__button__txt {
+  margin-top: 14px;
+}
+
+.main-area__button:hover {
+  background-color: #555;
+}
+
+.main-area__button:focus {
+  outline: 0;
+}
+
+.card__container {
+  height: 50vh;
+}
+
+.card {
+  max-width: 100%;
+  border-radius: 9px;
+  z-index: 301;
+  max-height: 50vh;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.card__under {
+  background-position: top center;
+  border-radius: 9px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 60%;
+  margin: auto;
+  max-height: 50vh;
+}
+
+.card__prep {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+}
+
+.main-area__descbox {
+  position: relative;
+  font-size: 0.8em;
+}
+
+/* ========== Boosters ========== */
+
+.booster {
+    width: 80%;
     text-align: center;
-  }
-  
-  .dark {
-    background-color: rgba(0,0,0,0.9);
-  }
-  
-  .darkish {
-    background-color: rgba(0,0,0,0.8);
-  }
-  
-  .light {
-    background-color: rgba(0,0,0,0.6);
-  }
-
-  /* Title */
-
-  .title {
-    margin-left: 30px;
-    margin-right: 30px;
-  }
-
-  .title h1, .title__mobile h1 {
-    font-family: 'Bungee', cursive;
-    font-size: 4em;
-    line-height: 1.2em;
-    margin-bottom: 0;
-  }
-
-  .title h2, .title__mobile h2 {
-    font-family: 'Bungee', cursive;
-    font-size: 2em;
-    line-height: 2.2em;
-    margin: 0;
-  }
-
-  .title h4, .title__mobile h4 {
-    font-size: 1.4em;
-    line-height: 1.2em;
-    margin: 0;
-  }
-
-  .title hr, .title__mobile hr {
-    margin: 0px 0px 0px 0px;
-  }
-
-  .title__choose-booster {
-    margin: 0.8em 0px 1.4em 0px;
-  }
-
-  .title__mobile {
-    margin-left: 1em;
-    margin-right: 1em;
-  }
-
-  .title__mobile h1 {
-    font-size: 2em;
-    line-height: 1em;
-  }
-
-  .title__mobile h4 {
-    font-size: 1em;
-    line-height: 2em;
-  }
-
-  .title__mobile h2 {
-    line-height: 2em;
-    font-size: 1.4em;
-  }
-
-  .title__mobile__choose-booster {
-    margin: 0.5em 0px 1em 0px;
-  }
-
-  /* Main Area */
-
-  .main-area__button__container {
-    height: 50vh;
-    position: relative;
-  }
-
-  .main-area__button {
-    width: 100%;
-    background-color: #333;
-    color: white;
-    position: absolute;
-    border: none;
-    top: 50%;
-    left: 0;
-    padding: 20px 0px 20px 0px;
-    transform: translateY(-50%);
-    text-transform: uppercase;
-    border-radius: 5px;
-    font-size: 1em;
-    transition: background-color 0.1s;
-    font-family: 'Bungee', cursive;
-    z-index: 1000;
-  }
-
-  .main-area__button i {
-    font-size: 2.4em;
-  }
-
-  .main-area__button__txt {
-    margin-top: 14px;
-  }
-
-  .main-area__button:hover {
-    background-color: #555;
-  }
-
-  .main-area__button:focus {
-    outline: 0;
-  }
-
-  .card__container {
-    height: 50vh;
-  }
-
-  .card {
-    max-width: 100%;
-    border-radius: 9px;
-    z-index: 301;
-    max-height: 50vh;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-
-  .card__under {
-    background-position: top center;
-    border-radius: 9px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 60%;
-    margin: auto;
-    max-height: 50vh;
-  }
-
-  .card__prep {
-    width: 0px;
-    height: 0px;
-    position: absolute;
-  }
-
-  .main-area__descbox {
-    position: relative;
-    font-size: 0.8em;
-  }
-
-  /* Boosters */
-
-  .booster {
-      width: 80%;
-      text-align: center;
-      background-color: #444;
-      cursor: pointer;
-      margin:auto;
-      margin-bottom: 20px;
-      transition: transform 0.1s;
-      box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.4);
-  }
-
-  .booster:hover {
-    transform: scale(1.05, 1.05);
-  }
-
-  /* Pile Stuff */
-  
-  .pileColumn {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .pile {
-    width: 85%;
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 0;
-    border-radius: 8px 8px 0px 0px;
-    margin: auto;
-    left: 0;
-    right: 0;
-    background-color: black;
-    display: flex;
-    flex-direction: column-reverse;
-  }
-  
-  
-  @keyframes enterbounce {
-    from {
-      transform: scale(1.1, 1.1);
-    } to {
-      transform: scale(1,1);
-    }
-  }
-  
-  .pile__topbar {
-    height: 35px;
-    width: 100%;
-    border-radius: 8px 8px 0px 0px;
-    background-color: #222;
-    color: white;
-    text-align: right;
-  }
-  
-  .pile__topbar button {
-    margin: 0;
-    line-height: 35px;
-    background-color: transparent;
-    border: 0;
-    padding: 0px 10px 0px 10px;
-    transition: color 0.2s;
-  }
-
-  .pile__topbar__stats {
-    margin: 0;
-    position: absolute;
-    left: 10px;
-    top: 0px;
-    line-height: 35px;
-  }
-  
-  .pile__topbar button:focus {
-    outline: 0;
-  }
-  
-  .pile__topbar button:hover {
-    color: red;
-  }
-  
-  .pile__card {
-    animation-name: enterbounce;
-    animation-duration: 0.5s;
-    width: 100%;
-    height: 35px;
-    border-radius: 8px 8px 0px 0px;
-    background: cover;
-    background-position: top;
-    background-size: cover;
-  }
-  
-  @keyframes fadeInLeft {
-    from {
-      transform: translateX(-200px);
-      opacity: 0;
-    } to {
-      transform: translateX(0px);
-      opacity: 1;
-    }
-  }
-  
-  .fadeInLeft {
-    animation-duration: 0.5s;
-  }
-
-  /* Stats */
-
-  .stat-box {
-    background-color: rgba(0,0,0,0.6);
-    padding: 20px;
-  }
-
-  .stat-box p {
-    font-size: 12px;
-    margin-bottom: 0px;
-  }
-
-  /* Background */
-
-  .fixed-backdrop {
-    position: fixed;
-    min-width: 100vw;
-    max-width: 110vw;
-    z-index: 0;
-    min-height: 100vh;
-    left: 0;
-    top: 0;
-    background-repeat: no-repeat;
-  }
-
-  /* Animations */
-
-  .fade-enter {
-    opacity: 0;
-    position: absolute;
-  }
-  
-  .fade-enter.fade-enter-active {
-    opacity: 1;
-    transition: opacity 0.5s;
-  }
-  
-  .fade-leave {
-    opacity: 1;
-    position: absolute;
-  }
-  
-  .fade-leave.fade-leave-active {
-    opacity: 0;
-    transition: opacity 0.5s ease-in;
-  }
-
-  .bad-card-enter {
-    opacity: 0;
-  }
-  
-  .bad-card-enter.bad-card-enter-active {
-    opacity: 1;
-    transition: opacity 0.5s;
-  }
-  
-  .bad-card-leave {
-    transform: translateX(0);
-    opacity: 1;
-    position: absolute;
-  }
-  
-  .bad-card-leave.bad-card-leave-active {
-    transform: translateX(-100%);
-    opacity: 0;
-    position: absolute;
-    transition: transform 0.5s, opacity 0.5s ease-in;
-  }
-
-  .good-card-enter {
-    opacity: 0;
-  }
-  
-  .good-card-enter.good-card-enter-active {
-    opacity: 1;
-    transition: opacity 0.5s;
-  }
-  
-  .good-card-leave {
-    transform: translateX(0);
-    opacity: 1;
-    position: absolute;
-  }
-  
-  .good-card-leave.good-card-leave-active {
-    transform: translateX(100%);
-    opacity: 0;
-    position: absolute;
-    transition: transform 0.5s, opacity 0.5s ease-in;
-  }
-
-  .backdrop-appear {
-    opacity: 0;
-  }
-
-  .backdrop-appear.backdrop-appear-active {
-    opacity: 1;
-    transition: opacity 1s ease-in;
-  }
-
-  .backdrop-enter {
-    opacity: 0;
-  }
-
-  .backdrop-enter.backdrop-enter-active {
-    opacity: 1;
-    transition: opacity 1s ease-in;
-  }
-
-  .backdrop-leave {
-    opacity: 1;
-  }
-
-  .backdrop-leave.backdrop-leave-active {
-    opacity: 0;
-    transition: opacity 1s ease-out;
-  }
-
-  /* Loader */
-
-  .loader__float-div {
-    background-color: rgba(0,0,0,0.6);
-    height: 100vh;
-    width: 100vw;
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-  }
-
-  .loader__container {
-    width: 20em;
-    height: 28em;
-    position: absolute;
-    margin: auto auto;
-    border-radius: 8px;
-    background-color: #333;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background-image: url("http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=426735&type=card");
-    background-size: cover;
-    filter: grayscale();
-    opacity: 0.5;
-    z-index: 99;
-  }
-
-  .loader__mover__container {
-    
-    width: 20em;
-    height: 28em;
-    z-index: 100;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: auto auto;
-  }
-
-  .loader__mover {
-    width: 20em;
-    border-radius: 8px;
-    background-image: url("http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=426735&type=card");
-    filter: none();
-    background-size: cover;
-    overflow: hidden;
-    z-index: 100;
-  }
-
-  .loader__text {
-    position: absolute;
-    color: white;
-    display: block;
-    font-family: 'Bungee', cursive;
-    height: 10vh;
-    line-height: 10vh;
-    width: 100%;
-    text-align: center;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-  }
-
-  /* Next Booster Buttons */
-
-  .next-booster__container {
-    transform: translateY(50%);
-    min-width: 0px;
-    text-align: center;
-  }
-
-  .next-booster__button {
+    background-color: #444;
+    cursor: pointer;
     margin:auto;
-    padding: 40px;
-    width: 100%;
-    border: none;
-    outline: none;
+    margin-bottom: 20px;
     transition: transform 0.1s;
-    color: white;
-    font-size: 30px;
-    background-color: #333;
-  }
+    box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.4);
+}
 
-  .next-booster__button:focus {
-    outline: none;
-  }
+.booster:hover {
+  transform: scale(1.05, 1.05);
+}
 
-  .next-booster__button:hover {
-    transform: scale(1.05,1.05);
+/* ========== Piles ========== */
+
+.pileColumn {
+  position: relative;
+  overflow: hidden;
+}
+
+.pile {
+  width: 85%;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0;
+  border-radius: 8px 8px 0px 0px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  background-color: black;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+
+@keyframes enterbounce {
+  from {
+    transform: scale(1.1, 1.1);
+  } to {
+    transform: scale(1,1);
   }
+}
+
+.pile__topbar {
+  height: 35px;
+  width: 100%;
+  border-radius: 8px 8px 0px 0px;
+  background-color: #222;
+  color: white;
+  text-align: right;
+}
+
+.pile__topbar button {
+  margin: 0;
+  line-height: 35px;
+  background-color: transparent;
+  border: 0;
+  padding: 0px 10px 0px 10px;
+  transition: color 0.2s;
+}
+
+.pile__topbar__stats {
+  margin: 0;
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  line-height: 35px;
+}
+
+.pile__topbar button:focus {
+  outline: 0;
+}
+
+.pile__topbar button:hover {
+  color: red;
+}
+
+.pile__card {
+  animation-name: enterbounce;
+  animation-duration: 0.5s;
+  width: 100%;
+  height: 35px;
+  border-radius: 8px 8px 0px 0px;
+  background: cover;
+  background-position: top;
+  background-size: cover;
+}
+
+@keyframes fadeInLeft {
+  from {
+    transform: translateX(-200px);
+    opacity: 0;
+  } to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.fadeInLeft {
+  animation-duration: 0.5s;
+}
+
+/* ========== Stats ========== */
+
+.stat-box {
+  background-color: rgba(0,0,0,0.6);
+  padding: 20px;
+}
+
+.stat-box p {
+  font-size: 12px;
+  margin-bottom: 0px;
+}
+
+/* ========== Background ========== */
+
+.fixed-backdrop {
+  position: fixed;
+  min-width: 100vw;
+  max-width: 110vw;
+  z-index: 0;
+  min-height: 100vh;
+  left: 0;
+  top: 0;
+  background-repeat: no-repeat;
+}
+
+/* ========== Animations ========== */
+
+.fade-enter {
+  opacity: 0;
+  position: absolute;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.fade-leave {
+  opacity: 1;
+  position: absolute;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+.bad-card-enter {
+  opacity: 0;
+}
+
+.bad-card-enter.bad-card-enter-active {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.bad-card-leave {
+  transform: translateX(0);
+  opacity: 1;
+  position: absolute;
+}
+
+.bad-card-leave.bad-card-leave-active {
+  transform: translateX(-100%);
+  opacity: 0;
+  position: absolute;
+  transition: transform 0.5s, opacity 0.5s ease-in;
+}
+
+.good-card-enter {
+  opacity: 0;
+}
+
+.good-card-enter.good-card-enter-active {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.good-card-leave {
+  transform: translateX(0);
+  opacity: 1;
+  position: absolute;
+}
+
+.good-card-leave.good-card-leave-active {
+  transform: translateX(100%);
+  opacity: 0;
+  position: absolute;
+  transition: transform 0.5s, opacity 0.5s ease-in;
+}
+
+.backdrop-appear {
+  opacity: 0;
+}
+
+.backdrop-appear.backdrop-appear-active {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+.backdrop-enter {
+  opacity: 0;
+}
+
+.backdrop-enter.backdrop-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+.backdrop-leave {
+  opacity: 1;
+}
+
+.backdrop-leave.backdrop-leave-active {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+/* ========== Loader ========== */
+
+.loader__float-div {
+  background-color: rgba(0,0,0,0.6);
+  height: 100vh;
+  width: 100vw;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.loader__container {
+  width: 20em;
+  height: 28em;
+  position: absolute;
+  margin: auto auto;
+  border-radius: 8px;
+  background-color: #333;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-image: url("http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=426735&type=card");
+  background-size: cover;
+  filter: grayscale();
+  opacity: 0.5;
+  z-index: 99;
+}
+
+.loader__mover__container {
+  
+  width: 20em;
+  height: 28em;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto auto;
+}
+
+.loader__mover {
+  width: 20em;
+  border-radius: 8px;
+  background-image: url("http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=426735&type=card");
+  filter: none();
+  background-size: cover;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.loader__text {
+  position: absolute;
+  color: white;
+  display: block;
+  font-family: 'Bungee', cursive;
+  height: 10vh;
+  line-height: 10vh;
+  width: 100%;
+  text-align: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+/* ========== Next Booster Buttons ========== */
+
+.next-booster__container {
+  transform: translateY(50%);
+  min-width: 0px;
+  text-align: center;
+}
+
+.next-booster__button {
+  margin:auto;
+  padding: 40px;
+  width: 100%;
+  border: none;
+  outline: none;
+  transition: transform 0.1s;
+  color: white;
+  font-size: 30px;
+  background-color: #333;
+}
+
+.next-booster__button:focus {
+  outline: none;
+}
+
+.next-booster__button:hover {
+  transform: scale(1.05,1.05);
+}

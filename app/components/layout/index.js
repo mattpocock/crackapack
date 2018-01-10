@@ -5,7 +5,6 @@ var ChooseBooster = require('./choosebooster');
 var Pile = require('./pile.js');
 var Background = require('./background.js');
 var Stats = require('./stats.js');
-
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 class Layout extends React.Component {
@@ -35,21 +34,29 @@ class Layout extends React.Component {
       this.updateBoosterCount = this.updateBoosterCount.bind(this);
     }
 
+    // Updates the boostersOpened
     updateBoosterCount() {
         this.setState({boostersOpened: this.state.boostersOpened+1});
-        console.log(this.state.boostersOpened + " boosters opened!");
     }
 
+    // Switches the view
     toggleMode() {
-        this.state.chooseBooster ? this.setState({chooseBooster : false}) : this.setState({chooseBooster: true});
+        // Note ternary expression
+        this.state.chooseBooster
+        ?
+            this.setState({chooseBooster : false})
+        :
+            this.setState({chooseBooster: true});
         this.updateBoosterCount();
     }
 
+    // Toggles the set Code
     toggleSetCode(code) {
         this.setState({setCode: code});
         this.changeBackground(code);
     }
 
+    // Handles a good click. Takes in a card object and sets the piles
     handleGoodClick(card) {
 
           var arr = this.state.goodPile.cards;
@@ -65,21 +72,23 @@ class Layout extends React.Component {
         });
       }
       
+      // Handles a bad click. Takes in a card object and sets the piles
       handleBadClick(card) {
 
-          var arr = this.state.badPile.cards;
-          arr.push(card);
+        var arr = this.state.badPile.cards;
+        arr.push(card);
         if (arr.length > 16) {
             arr.splice(0,1);
-          }
-          this.setState({
+        }
+        this.setState({
             badPile : {
                 cards: arr
             },
-            badPulls : this.state.badPulls+1
-    });
+            badPulls : this.state.badPulls + 1
+        });
       }
 
+      // Takes in a set Code, returns a background image
       changeBackground(code) {
 
         var src;
@@ -165,12 +174,14 @@ class Layout extends React.Component {
             transitionAppearTimeout={1000}
             transitionLeaveTimeout={1000}
             >
-                {this.state.backgroundImage !== undefined
-                    ?
-                    <img key={this.state.setCode} className="fixed-backdrop" src={this.state.backgroundImage}></img>
-                    :
-                    <img key={this.state.setCode} className="fixed-backdrop" src={this.state.defaultBackground}></img>
-                    }
+
+            {/* Note ternary expression */}
+            {this.state.backgroundImage !== undefined
+            ?
+            <img key={this.state.setCode} className="fixed-backdrop" src={this.state.backgroundImage}></img>
+            :
+            <img key={this.state.setCode} className="fixed-backdrop" src={this.state.defaultBackground}></img>
+            }
             </ReactCSSTransitionGroup>
 
         <div className="container-fluid fixed-position">

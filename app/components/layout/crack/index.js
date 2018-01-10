@@ -18,11 +18,9 @@ class Crack extends React.Component {
         loaded: false,
         loadCard : "",
         loadPercent : 0,
-
         booster: {
           cards: []
         },
-
         mainCard: {}
         
       };
@@ -33,8 +31,7 @@ class Crack extends React.Component {
       this.handleImageLoaded = this.handleImageLoaded.bind(this);
     }
 
-    
-    
+    // Handles next Card
     nextCard() {
 
         var c = this.state.boosterCount - 1;
@@ -57,6 +54,7 @@ class Crack extends React.Component {
 
     }
 
+    // Detects if image loaded in preloader, updates state
     handleImageLoaded(response) {
 
       var c = this.state.imagesLoaded + 1;
@@ -78,6 +76,7 @@ class Crack extends React.Component {
 
     }
 
+    // Next booster
     nextBooster() {
 
       this.setState({mainCard: {}, loaded: false});
@@ -86,9 +85,11 @@ class Crack extends React.Component {
 
     }
 
+    // Fetches a booster JSON object from the API, based on a setCode
     generateBooster(set) {
 
-        fetch('https://api.magicthegathering.io/v1/sets/'+set+'/booster').then(function(response) {
+        fetch('https://api.magicthegathering.io/v1/sets/'+set+'/booster')
+          .then(function(response) {
             return response.json();
           }).then(function(json) {
 
@@ -119,8 +120,9 @@ class Crack extends React.Component {
 
               <Title/>
 
-              {/* Image Preloader */}
-
+              {/* Image Preloader
+                * A row of invisible images that report their load status
+                */}
               {this.state.booster.cards.slice(0).reverse().map(function(item, i) {
                 return (
                   <img key={i}
@@ -139,14 +141,18 @@ class Crack extends React.Component {
               transitionAppearTimeout={1000}
               transitionLeaveTimeout={1000}
               >
-
-                {!this.state.loaded ? <Loader key={this.state.boostersOpened} loadPercent={this.state.loadPercent}/>
-                : <MainArea card={this.state.mainCard}
+                {// Note ternary expression
+                // If not loaded, display loader. If loaded, display MainArea
+                !this.state.loaded
+                ?
+                  <Loader key={this.state.boostersOpened} loadPercent={this.state.loadPercent}/>
+                :
+                  <MainArea card={this.state.mainCard}
                   next={this.nextCard}
                   goodClickHandler={this.props.goodClickHandler}
                   badClickHandler={this.props.badClickHandler}
                   boosterCount={this.state.boosterCount}
-                  toggle={this.props.toggle}/>
+                  toggle={this.props.toggle}/> 
                 }
 
               </ReactCSSTransitionGroup>

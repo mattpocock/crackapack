@@ -20,6 +20,7 @@ class MainArea extends React.Component {
 
     }
     
+    // Passes the badclick to the parent
     handleBadClick() {
 
       this.props.badClickHandler(this.props.card);
@@ -28,6 +29,7 @@ class MainArea extends React.Component {
 
     }
 
+    // Passes the goodclick to the parent
     handleGoodClick() {
 
       this.props.goodClickHandler(this.props.card);
@@ -36,6 +38,7 @@ class MainArea extends React.Component {
 
     }
     
+    // Handles a swipe passed to it from ReactTouchEvents
     handleSwipe (direction) {
     
       switch (direction) {
@@ -78,13 +81,19 @@ class MainArea extends React.Component {
                 <ReactCSSTransitionGroup
                   transitionEnter={true}
                   transitionLeave={true}
-                  transitionName={this.state.lastClick === "bad" ? "bad-card" : "good-card"}>
+                  transitionName={this.state.lastClick === "bad"
+                  ?
+                  "bad-card"
+                  :
+                  "good-card"}>
                     <Card card={this.props.card} key={this.props.boosterCount}/>
                 </ReactCSSTransitionGroup>
               </div>
 
           <div className="col-xs-2 main-area__button__container">
-            <button className="main-area__button" onClick={this.handleGoodClick}><i className="fa fa-thumbs-up" aria-hidden="true"></i>
+            <button className="main-area__button"
+                onClick={this.handleGoodClick}>
+              <i className="fa fa-thumbs-up" aria-hidden="true"></i>
             </button>
           </div>
 
