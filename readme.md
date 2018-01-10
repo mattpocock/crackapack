@@ -13,21 +13,21 @@ app
 |
 |   |   App.js
 |   |   |
-|   |   |   layout
-|   |   |   |   background.js
-|   |   |   |   index.js
-|   |   |   |   pile.js
-|   |   |   |   stats.js
-|   |   |   |   title.js
-|   |   |   choosebooster
-|   |   |   |   boosterselection.js
-|   |   |   |   index.js
-|   |   |   |   img
-|   |   |   crack
-|   |   |   |   card.js
-|   |   |   |   index.js
-|   |   |   |   loader.js
-|   |   |   |   mainarea.js
+|   |   layout
+|   |   |   background.js
+|   |   |   index.js
+|   |   |   pile.js
+|   |   |   stats.js
+|   |   |   title.js
+|   |   choosebooster
+|   |   |   boosterselection.js
+|   |   |   index.js
+|   |   |   img
+|   |   crack
+|   |   |   card.js
+|   |   |   index.js
+|   |   |   loader.js
+|   |   |   mainarea.js
 
 ```
 
